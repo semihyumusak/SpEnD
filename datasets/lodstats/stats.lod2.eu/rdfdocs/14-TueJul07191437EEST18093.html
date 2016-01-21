@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+  <meta charset="utf-8">
+	<title>LODStats - About http://sgd.bio2rdf.org/sparql</title>
+	<link href="/css.css" media="screen" rel="stylesheet" type="text/css" />
+	<script src="/jquery.js" type="text/javascript"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div id="lodstatslogo">
+      <a href="/">
+        <img id="lodstatslogoimg" src="/lodstats_small.png"/>
+      </a>
+    </div>
+    <div id="linklogos">
+      <a href="http://aksw.org/"><img class="linklogo" src="/logo-aksw_small.png"/></a>
+    </div>
+    <div class="navigation-container">
+      <ul id="nav">
+        <li><a href="/">Home</a></li>
+        <li><a href="/stats">Statistics</a></li>
+        <li><a href="/rdfdocs">Datasets</a></li>
+        <li><a href="/rdf_classes">Classes</a></li>
+        <li><a href="/properties">Properties</a></li>
+        <li><a href="/vocabularies">Vocabularies</a></li>
+        <li><a href="/links">Links</a></li>
+        <li><a href="/datatypes">Types</a></li>
+        <li><a href="/languages">Languages</a></li>
+        <li><a href="http://aksw.org/projects/LODStats">About</a></li>
+        <li><a href="http://stats.lod2.eu/sparql">Sparql Endpoint</a></li>
+      </ul>
+      
+    </div>
+<div class="content">
+  
+
+
+
+
+<h2><a href="http://thedatahub.org/dataset/bio2rdf-sgd">bio2rdf-sgd</a></h2>
+<ul>
+  <li><a href="http://sgd.bio2rdf.org/sparql">http://sgd.bio2rdf.org/sparql</a></li>
+  <li>Last updated: 2014-11-28 19:36:11.195420</li>
+  <li>Is being worked on: False</li>
+  <li>File last modified: 
+</ul>
+
+  
+
+<ul>
+<li>Results last updated: 2014-11-28 19:36:11.195467</li>
+</ul>
+  <h3>Basic Statistics</h3>
+  <table>
+    <th>Criterion</th><th>Value</th>
+    <tr><td>Triples</td><td>12530080</td></tr>
+    <tr><td>Entities</td><td>0</td></tr>
+    <tr><td>Literals</td><td>0</td></tr>
+    <tr id="classes_toggle"><td>Classes</td><td>0</td></tr>
+    <tr id="classes_defined_toggle">
+      <td>Defined classes</td>
+      <td>0</td>
+    </tr>
+    <tr id="vocabularies_toggle">
+      <td>Vocabularies</td>
+      <td>0</td>
+    </tr>
+    <tr id="properties_toggle">
+      <td>Properties</td>
+      <td>0</td>
+    </tr>
+    <tr id="datatypes_toggle">
+      <td>Datatypes</td>
+      <td>0</td>
+    </tr>
+    <tr id="languages_toggle">
+      <td>Languages</td>
+      <td>0</td>
+    </tr>
+    <tr id="links_toggle">
+      <td>Linked namespaces</td>
+      <td>0</td>
+    </tr>
+    <tr><td>Blanks</td><td>0</td></tr>
+    <tr><td>Blanks as subject</td><td>0</td></tr>
+    <tr><td>Blanks as object</td><td>0</td></tr>
+    <tr><td>Subclasses</td><td>0</td></tr>
+    <tr><td>Typed_subjects</td><td>0</td></tr>
+    <tr><td>Labeled subjects</td><td>0</td></tr>
+    <tr><td>Class hierarchy depth</td><td></td></tr>
+    <tr><td>Property hierarchy depth</td><td></td></tr>
+    <tr><td>Properties per entity</td><td>0.0</td></tr>
+    <tr><td>String length (typed)</td><td>0.0</td></tr>
+    <tr><td>String length (untyped)</td><td>0.0</td></tr>
+    <tr><td>Links</td><td>0</td></tr>
+  </table>
+  <h3><span id="void">VoID: (click to toggle</span>, <a href="/stat_result/18385.void">download</a>)</h3>
+  <pre id="void_pre" style="display: none">@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
+@prefix void: &lt;http://rdfs.org/ns/void#&gt; .
+@prefix void-ext: &lt;http://stats.lod2.eu/rdf/void-ext/&gt; .
+@prefix qb: &lt;http://purl.org/linked-data/cube#&gt; .
+@prefix dcterms: &lt;http://purl.org/dc/terms/&gt; .
+@prefix ls-void: &lt;http://stats.lod2.eu/rdf/void/&gt; .
+@prefix ls-qb: &lt;http://stats.lod2.eu/rdf/qb/&gt; .
+@prefix ls-cr: &lt;http://stats.lod2.eu/rdf/qb/criteria/&gt; .
+@prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+@prefix xstats: &lt;http://example.org/XStats#&gt; .
+@prefix foaf: &lt;http://xmlns.com/foaf/0.1/&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;http://stats.lod2.eu/rdf/void/?source=http://sgd.bio2rdf.org/sparql&gt;
+    void:classes 0 ;
+    void:entities 0 ;
+    void:properties 0 ;
+    void:triples 12530080 ;
+    a void:Dataset .
+
+</pre>
+<script>
+  $("#void").click(function () {
+      $("#void_pre").toggle("slow");
+    });
+    $("#classes_toggle").click(function () {
+        $(".classes_row").toggle();
+    });
+    $("#classes_defined_toggle").click(function () {
+        $(".classes_defined_row").toggle();
+    });
+    $("#vocabularies_toggle").click(function () {
+        $(".vocabularies_row").toggle();
+    });
+    $("#properties_toggle").click(function () {
+        $(".properties_row").toggle();
+    });
+    $("#datatypes_toggle").click(function () {
+        $(".datatypes_row").toggle();
+    });
+    $("#languages_toggle").click(function () {
+        $(".languages_row").toggle();
+    });
+    $("#links_toggle").click(function () {
+        $(".links_row").toggle();
+    });
+</script>
+
+
+<h3>Older statistics:</h3>
+<ul>
+  <li><a href="/stat_result/18301">2014-11-28 15:55:43.841719</a></li>
+  <li><a href="/stat_result/15983">2014-01-07 13:12:04.952399</a></li>
+  <li><a href="/stat_result/13682">2013-05-15 16:00:03.557310</a></li>
+  <li><a href="/stat_result/13055">2013-03-03 21:04:56.638928</a></li>
+  <li><a href="/stat_result/12427">2012-10-11 16:24:57.616653</a></li>
+  <li><a href="/stat_result/11872">2012-08-26 00:19:22.832304</a></li>
+  <li><a href="/stat_result/11310">2012-08-18 11:10:25.267324</a></li>
+  <li><a href="/stat_result/10779">2012-07-11 05:47:20.656310</a></li>
+  <li><a href="/stat_result/10180">2012-07-02 20:50:13.343293</a></li>
+  <li><a href="/stat_result/9658">2012-06-14 19:38:22.960542</a></li>
+  <li><a href="/stat_result/9125">2012-06-07 19:32:40.822314</a></li>
+  <li><a href="/stat_result/8624">2012-05-31 19:27:30.693970</a></li>
+  <li><a href="/stat_result/8123">2012-05-24 19:21:43.601259</a></li>
+  <li><a href="/stat_result/7621">2012-05-17 19:15:33.310470</a></li>
+  <li><a href="/stat_result/7120">2012-05-10 19:14:52.657822</a></li>
+  <li><a href="/stat_result/6619">2012-05-03 19:09:52.528494</a></li>
+  <li><a href="/stat_result/6118">2012-04-26 00:00:22.786459</a></li>
+  <li><a href="/stat_result/5617">2012-04-18 23:55:00.198275</a></li>
+  <li><a href="/stat_result/5128">2012-04-11 23:53:30.185379</a></li>
+  <li><a href="/stat_result/4651">2012-03-08 05:31:13.171095</a></li>
+  <li><a href="/stat_result/4176">2012-03-01 01:02:50.841484</a></li>
+  <li><a href="/stat_result/3707">2012-02-22 16:57:57.764127</a></li>
+  <li><a href="/stat_result/3239">2012-02-15 16:52:21.806425</a></li>
+  <li><a href="/stat_result/2770">2012-02-08 16:46:18.031819</a></li>
+  <li><a href="/stat_result/2310">2012-02-01 16:41:35.430388</a></li>
+  <li><a href="/stat_result/1850">2012-01-25 16:35:32.829471</a></li>
+  <li><a href="/stat_result/1392">2012-01-18 16:30:43.334154</a></li>
+  <li><a href="/stat_result/935">2012-01-11 16:23:45.992154</a></li>
+  <li><a href="/stat_result/474">2012-01-02 18:21:34.068214</a></li>
+  <li><a href="/stat_result/17">2011-12-16 02:59:22.619985</a></li>
+</ul>
+
+</div>
+<div class="lod2logo">
+      <a href="http://lod2.eu/"><img class="linklogo" src="/logo-lod2_small.png"/></a>
+</div>
+</div>
+</body>
+</html>
