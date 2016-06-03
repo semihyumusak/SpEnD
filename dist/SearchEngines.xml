@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<searchEngines>
+    <searchEngine>
+        <name>google</name>
+        <excludedWords>google</excludedWords>
+        <baseUrl>https://www.google.com.tr</baseUrl>
+        <queryTextBoxName>q</queryTextBoxName>
+        <submitButtonId>gbqfb</submitButtonId>
+        <submitButtonName>btnG</submitButtonName>
+        <defaultBrowser></defaultBrowser>
+        <nextButtonIdentifier>Sonraki</nextButtonIdentifier>
+        <useUrlRedirection>false</useUrlRedirection>
+        <waitIntervalMs>1000</waitIntervalMs>
+    </searchEngine>
+     <searchEngine>
+        <name>yahoo</name>
+        <excludedWords>yahoo|bing|yimg|zenfs</excludedWords>
+        <baseUrl>https://www.yahoo.com</baseUrl>
+        <queryTextBoxName>p</queryTextBoxName>
+        <submitButtonId>search-submit</submitButtonId>
+        <submitButtonName></submitButtonName>
+        <defaultBrowser></defaultBrowser>
+        <nextButtonIdentifier>Next</nextButtonIdentifier>
+        <useUrlRedirection>false</useUrlRedirection>
+        <waitIntervalMs>1000</waitIntervalMs>
+    </searchEngine>
+     <searchEngine>
+        <name>bing</name>
+        <excludedWords>bingj|bing</excludedWords>
+        <baseUrl>https://www.bing.com</baseUrl>
+        <queryTextBoxName>q</queryTextBoxName>
+        <submitButtonId>sb_form_go</submitButtonId>
+        <submitButtonName></submitButtonName>
+        <defaultBrowser></defaultBrowser>
+        <nextButtonIdentifier>Next</nextButtonIdentifier>
+        <useUrlRedirection>false</useUrlRedirection>
+        <waitIntervalMs>1000</waitIntervalMs>
+    </searchEngine>
+     <searchEngine>
+        <name>yandex</name>
+        <excludedWords>yandex</excludedWords>
+        <baseUrl>http://www.yandex.com.tr</baseUrl>
+        <queryTextBoxName>text</queryTextBoxName>
+        <submitButtonId>button</submitButtonId>
+        <submitButtonName></submitButtonName>
+        <defaultBrowser>chrome</defaultBrowser>
+        <nextButtonIdentifier>sonraki</nextButtonIdentifier>
+        <useUrlRedirection>false</useUrlRedirection>
+        <waitIntervalMs>1000</waitIntervalMs>
+    </searchEngine>
+     <searchEngine>
+        <name>baidu</name>
+        <excludedWords>baidu|bdstatic|bdimg</excludedWords>
+        <baseUrl>http://www.baidu.com</baseUrl>
+        <queryTextBoxName>wd</queryTextBoxName>
+        <submitButtonId>su</submitButtonId>
+        <submitButtonName></submitButtonName>
+        <defaultBrowser></defaultBrowser>
+        <nextButtonIdentifier>下一页</nextButtonIdentifier>
+        <useUrlRedirection>true</useUrlRedirection>
+        <waitIntervalMs>1000</waitIntervalMs>
+    </searchEngine>
+</searchEngines>
+ 
