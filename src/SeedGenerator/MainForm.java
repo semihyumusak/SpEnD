@@ -732,6 +732,8 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         jButton5 = new javax.swing.JButton();
         jButtontfidftop20 = new javax.swing.JButton();
         jButtonWordnetlevel = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        btnIoTCollectResults = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -2104,7 +2106,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     .addComponent(pnlCrawler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlCrawler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(pnlCrawler5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 5, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Crawler", jPanel2);
@@ -2236,7 +2238,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtNumOfThreadsStatusMonitoring, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 84, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLodstats, btnParseLODCloud, btnParseSemanticDiscovery, btnParseSparqles, btnStatusMonitor});
@@ -2499,7 +2501,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 536, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
@@ -2547,13 +2549,11 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                                 .addComponent(jButtonExportSelectedTriples)))
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton8)
-                                .addGap(49, 49, 49))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton5)
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jButton5))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addComponent(jButton8)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -2567,12 +2567,11 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     .addComponent(txtMaxCollectorThreads, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton6)
-                        .addComponent(jButton7)
-                        .addComponent(jButtonExportSelectedTriples))
-                    .addComponent(jButton8, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton6)
+                    .addComponent(jButton7)
+                    .addComponent(jButtonExportSelectedTriples)
+                    .addComponent(jButton8))
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2607,10 +2606,36 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     .addComponent(jButtontfidftop20))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Recommender", jPanel4);
+
+        btnIoTCollectResults.setText("Start");
+        btnIoTCollectResults.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIoTCollectResultsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnIoTCollectResults)
+                .addContainerGap(571, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnIoTCollectResults)
+                .addContainerGap(337, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("IoT Crawler", jPanel5);
 
         jMenu2.setText("File");
 
@@ -6766,6 +6791,25 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonPostFilterUrlsActionPerformed
 
+    private void btnIoTCollectResultsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIoTCollectResultsActionPerformed
+        WorkerSparql sworker = new WorkerSparql(this, connectionUrl);
+        sworker.start();
+//        for (int i = 0; i < 20; i++) {
+//            WorkerSparql sworker = new WorkerSparql(this, connectionUrl);
+//            sworker.setName("Worker Remote Sparql");
+//            threadsSparql[i] = sworker;
+//            //threadArray[i++] = sworker;
+//            sworker.start();
+//            try {
+//                //   Thread.sleep(157);
+//            } catch (Exception ex) {
+//
+//            }
+//        }
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnIoTCollectResultsActionPerformed
+
     public static List<String> extractUrls(String text) {
         List<String> containedUrls = new ArrayList<String>();
         String urlRegex = "((https?|ftp|gopher|telnet|file):((//)|(\\\\))+[\\w\\d:#@%/;$()~_?\\+-=\\\\\\.&]*)";
@@ -7056,6 +7100,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls3;
     private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls4;
     private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls5;
+    private javax.swing.JButton btnIoTCollectResults;
     private javax.swing.JButton btnLodstats;
     private javax.swing.JButton btnParseDatahub;
     private javax.swing.JButton btnParseLODCloud;
@@ -7162,6 +7207,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;

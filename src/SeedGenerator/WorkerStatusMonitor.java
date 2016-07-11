@@ -103,7 +103,7 @@ public class WorkerStatusMonitor extends Thread {
                     }
                     Thread.sleep(10000);
                 } else {
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                     System.gc();
                 }
             } catch (SQLException s) {
@@ -251,7 +251,7 @@ public class WorkerStatusMonitor extends Thread {
 //            Random r = new Random();
 //            int randomSleepTime = r.nextInt(5000) + 200;//minimum 200 ms max 2200 ms
 //            Thread.sleep(randomSleepTime);
-        JenaSparql.queryTimeOut = 120000;
+        JenaSparql.queryTimeOut = 10000;
         if (JenaSparql.isSparqlEndpoint(url)) {
             //  updateSeedUrlFromId(urlid, 1); //update for sparql endpoint
             updateSeedUrl(url, 1);

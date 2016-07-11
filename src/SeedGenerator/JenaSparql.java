@@ -99,6 +99,7 @@ public class JenaSparql {
     }
 
     public static String getSparqlXMLResult(String sparqlEndpoint, String sparqlQuery) {
+       System.out.println(sparqlEndpoint); 
         Query query;
         QueryEngineHTTP httpQuery;
         ResultSet results;

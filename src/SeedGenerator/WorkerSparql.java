@@ -162,7 +162,7 @@ public class WorkerSparql extends Thread {
             //int id = rs.getInt("id");
             String url = "";
             String query = "";
-            if (rs.next()) {
+            if (rs.next()) { 
                 url = rs.getString("endpointUrl");
                 query = rs.getString("sparqlQuery");
             }
