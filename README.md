@@ -1,4 +1,4 @@
-# SPEC (SPARQL ENDPOINT CRAWLER)
+# SPECAN v2.0 (SPARQL ENDPOINT CRAWLER AND ANALYZER)
 This respository contains the source code for the SPEC Engine, which is a linked data metacrawler and analyzer.
 The main Web page for the project: http://wis.etu.edu.tr/spend
 # Installation
