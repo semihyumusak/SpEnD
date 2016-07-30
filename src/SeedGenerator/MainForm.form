@@ -1026,7 +1026,7 @@
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jButton4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnParseSemanticDiscovery" linkSize="1" max="32767" attributes="0"/>
+                                  <Component id="btnParseSemanticDiscovery" max="32767" attributes="0"/>
                                   <Component id="jButtonGetSparqlEndpointWebPages" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -1540,7 +1540,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="120" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="button1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                               <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -1564,7 +1566,10 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="panel1" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="button1" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
@@ -1642,6 +1647,14 @@
                 </DimensionLayout>
               </Layout>
             </Container>
+            <Component class="java.awt.Button" name="button1">
+              <Properties>
+                <Property name="label" type="java.lang.String" value="button1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button1ActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
       </SubComponents>

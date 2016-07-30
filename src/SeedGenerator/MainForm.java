@@ -346,6 +346,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         }
         return null;
     }
+
     /*
      private BrowserVersion getBrowserVersionFromName(String browsername) {
      switch (browsername) {
@@ -397,7 +398,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //                return null;
 //        }
 //    }
-
 //    public enum SearchEngineStruct {
 //
 //        Google, Yahoo, Bing, Yandex;
@@ -632,6 +632,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         jScrollPane1 = new javax.swing.JScrollPane();
         panel1 = new java.awt.Panel();
         jPanel8 = new javax.swing.JPanel();
+        button1 = new java.awt.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -1608,6 +1609,13 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        button1.setLabel("button1");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1615,7 +1623,9 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(120, 120, 120)
+                        .addContainerGap()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(43, 43, 43)
@@ -1634,7 +1644,9 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                         .addContainerGap()
                         .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(52, 52, 52)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1774,6 +1786,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         }
         return 0;
     }
+
     /*
      private String clickButton(Object tempsubmit) {
      HtmlSubmitInput htmlsubmit;
@@ -1794,7 +1807,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
      }
      */
-    /*
+ /*
      private HtmlPage clickButtonReturnPage(Object tempsubmit) throws IOException {
      HtmlSubmitInput htmlsubmit;
      HtmlButton htmlbutton;
@@ -1811,7 +1824,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
      }
      */
-    /*
+ /*
      private HtmlPage clickSearchButtonMainPage(final WebClient webClient, SearchEngine se) {
 
      String url = se.getBaseUrl();
@@ -1854,7 +1867,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
      }
      */
 
-    /*
+ /*
      private void searchGoogle() {
      try {
      //String url = "https://www.google.com.tr";
@@ -1907,7 +1920,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
      }
      }
      */
-    /*
+ /*
      private String getNextUrlYahoo(String htmltext) {
      int nexturlstartindex = htmltext.indexOf("id=\"pg-next\" href=") + 19;
      int urlendindex = htmltext.indexOf('"', nexturlstartindex + 20);
@@ -2041,7 +2054,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
      }
      }
      */
-    /*
+ /*
      private boolean isExcluded(String url, String searchEngineName) {
      String excludeString = getSearchEngineFromName(searchEngineName).getExcludedWords();
      boolean excludeMatch = false;
@@ -2931,12 +2944,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                             host = u.getHost();
                             if (InternetDomainName.isValid(host)) {
                                 host = InternetDomainName.from(host).topPrivateDomain().toString();
+                            } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                                host = com.google.common.net.HostSpecifier.from(host).toString();
                             } else {
-                                if (com.google.common.net.HostSpecifier.isValid(host)) {
-                                    host = com.google.common.net.HostSpecifier.from(host).toString();
-                                } else {
-                                    host = "";
-                                }
+                                host = "";
                             }
                         } catch (Exception ex) {
                         }
@@ -3424,12 +3435,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 String host = u.getHost();
                 if (InternetDomainName.isValid(host)) {
                     host = InternetDomainName.from(host).topPrivateDomain().toString();
+                } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                    host = com.google.common.net.HostSpecifier.from(host).toString();
                 } else {
-                    if (com.google.common.net.HostSpecifier.isValid(host)) {
-                        host = com.google.common.net.HostSpecifier.from(host).toString();
-                    } else {
-                        host = "";
-                    }
+                    host = "";
                 }
                 PreparedStatement updatepstmt
                         = con.prepareStatement("update endpoints set domain = ? where id = ?");
@@ -4987,12 +4996,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     host = u.getHost();
                     if (InternetDomainName.isValid(host)) {
                         host = InternetDomainName.from(host).topPrivateDomain().toString();
+                    } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                        host = com.google.common.net.HostSpecifier.from(host).toString();
                     } else {
-                        if (com.google.common.net.HostSpecifier.isValid(host)) {
-                            host = com.google.common.net.HostSpecifier.from(host).toString();
-                        } else {
-                            host = "";
-                        }
+                        host = "";
                     }
                 } catch (Exception ex) {
 
@@ -5105,29 +5112,29 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 int currentid = rsall.getInt("id");
                 String currentendpointUrl = rsall.getString("endpointUrl");
                 int currenttriples = rsall.getInt("triples");
-         
-                    int sameasid = 0;
-                    if (currenttriples != 0) {
-                        String SQL = "select id,endpointUrl,length(endpointUrl),triples from endpoints where triples=? order by length(endpointUrl) asc limit 1";
-                        PreparedStatement pstmt = con.prepareStatement(SQL);
-                        pstmt.setInt(1, currenttriples);
-                        ResultSet rs = pstmt.executeQuery();
-                        if (rs.next()) {
-                            sameasid = rs.getInt("id");
-                        }
-                        rs.close();
-                        pstmt.close();
+
+                int sameasid = 0;
+                if (currenttriples != 0) {
+                    String SQL = "select id,endpointUrl,length(endpointUrl),triples from endpoints where triples=? order by length(endpointUrl) asc limit 1";
+                    PreparedStatement pstmt = con.prepareStatement(SQL);
+                    pstmt.setInt(1, currenttriples);
+                    ResultSet rs = pstmt.executeQuery();
+                    if (rs.next()) {
+                        sameasid = rs.getInt("id");
                     }
-                    //  if (id != sameasid && sameasid != 0) {
-                    if (sameasid != 0) {
-                        String SQL = "UPDATE endpoints SET sameAs=? where id=" + currentid + ";";
-                        PreparedStatement pstmt = con.prepareStatement(SQL);
-                        pstmt.setInt(1, sameasid);
-                        pstmt.executeUpdate();
-                        pstmt.close();
-                    }
+                    rs.close();
+                    pstmt.close();
                 }
-            
+                //  if (id != sameasid && sameasid != 0) {
+                if (sameasid != 0) {
+                    String SQL = "UPDATE endpoints SET sameAs=? where id=" + currentid + ";";
+                    PreparedStatement pstmt = con.prepareStatement(SQL);
+                    pstmt.setInt(1, sameasid);
+                    pstmt.executeUpdate();
+                    pstmt.close();
+                }
+            }
+
         } catch (Exception ex) {
 
         }
@@ -5178,12 +5185,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     String host = u.getHost();
                     if (InternetDomainName.isValid(host)) {
                         host = InternetDomainName.from(host).topPrivateDomain().toString();
+                    } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                        host = com.google.common.net.HostSpecifier.from(host).toString();
                     } else {
-                        if (com.google.common.net.HostSpecifier.isValid(host)) {
-                            host = com.google.common.net.HostSpecifier.from(host).toString();
-                        } else {
-                            host = "";
-                        }
+                        host = "";
                     }
                     String query = txtSearchTexts.getText().split("\\n")[0] + " site:" + host;
                     if (!previousQueries.contains(query) && !host.equals("")) {
@@ -5304,87 +5309,87 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
         try {
             final WebClient webClient = new WebClient();//BrowserVersion.FIREFOX_24);
-        for (int i = 1; i < 22; i++) {
-            HtmlPage page = webClient.getPage(txtLodstatsUrl.getText() + "/rdfdocs?page=" + i);
-            DocumentBuilderFactory dbf
-            = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            InputSource is = new InputSource();
-            is.setCharacterStream(new StringReader(page.asXml()));
-            Document doc = db.parse(is);
-
-            NodeList nodeList = doc.getElementsByTagName("tr");
-            String datasetName;
-            String url;
-            String format;
-            String rowFormat;
-            for (int j = 0; j < nodeList.getLength(); j++) {
-                Node node = nodeList.item(j);
-                try {
-                    NodeList tdNodeList = node.getChildNodes();
-                    url = tdNodeList.item(1).getChildNodes().item(1).getAttributes().getNamedItem("href").getNodeValue().trim();
-                    datasetName = tdNodeList.item(1).getChildNodes().item(1).getTextContent().trim();
-                    format = tdNodeList.item(7).getTextContent().trim();
-                    if (format.equals("sparql")) {
-                        HtmlPage page2 = webClient.getPage(txtLodstatsUrl.getText() + url);
-                        File f = new File("datasets/lodstats/stats.lod2.eu" + url + "-" + (new java.util.Date(System.nanoTime())).toString().replaceAll(" ", "").replaceAll(":", "") + ".html");
-                        f.getParentFile().mkdirs();
-                        f.createNewFile();
-                        FileUtils.writeStringToFile(f, page2.getWebResponse().getContentAsString());
-
-                        DocumentBuilderFactory dbf2
+            for (int i = 1; i < 22; i++) {
+                HtmlPage page = webClient.getPage(txtLodstatsUrl.getText() + "/rdfdocs?page=" + i);
+                DocumentBuilderFactory dbf
                         = DocumentBuilderFactory.newInstance();
-                        DocumentBuilder db2 = dbf.newDocumentBuilder();
-                        InputSource is2 = new InputSource();
-                        is2.setCharacterStream(new StringReader(page2.asXml()));
-                        Document doc2 = db.parse(is2);
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                InputSource is = new InputSource();
+                is.setCharacterStream(new StringReader(page.asXml()));
+                Document doc = db.parse(is);
 
-                        NodeList liNodeList = doc2.getElementsByTagName("div");
-                        for (int k = 0; k < nodeList.getLength(); k++) {
-                            try {
-                                if (liNodeList.item(k).getAttributes().getNamedItem("class").getTextContent().equals("content")) {
-                                    String endpointurl = liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim();
-                                    if (endpointurl.endsWith("/")) {
-                                        endpointurl = endpointurl.substring(0, endpointurl.length() - 1);
+                NodeList nodeList = doc.getElementsByTagName("tr");
+                String datasetName;
+                String url;
+                String format;
+                String rowFormat;
+                for (int j = 0; j < nodeList.getLength(); j++) {
+                    Node node = nodeList.item(j);
+                    try {
+                        NodeList tdNodeList = node.getChildNodes();
+                        url = tdNodeList.item(1).getChildNodes().item(1).getAttributes().getNamedItem("href").getNodeValue().trim();
+                        datasetName = tdNodeList.item(1).getChildNodes().item(1).getTextContent().trim();
+                        format = tdNodeList.item(7).getTextContent().trim();
+                        if (format.equals("sparql")) {
+                            HtmlPage page2 = webClient.getPage(txtLodstatsUrl.getText() + url);
+                            File f = new File("datasets/lodstats/stats.lod2.eu" + url + "-" + (new java.util.Date(System.nanoTime())).toString().replaceAll(" ", "").replaceAll(":", "") + ".html");
+                            f.getParentFile().mkdirs();
+                            f.createNewFile();
+                            FileUtils.writeStringToFile(f, page2.getWebResponse().getContentAsString());
+
+                            DocumentBuilderFactory dbf2
+                                    = DocumentBuilderFactory.newInstance();
+                            DocumentBuilder db2 = dbf.newDocumentBuilder();
+                            InputSource is2 = new InputSource();
+                            is2.setCharacterStream(new StringReader(page2.asXml()));
+                            Document doc2 = db.parse(is2);
+
+                            NodeList liNodeList = doc2.getElementsByTagName("div");
+                            for (int k = 0; k < nodeList.getLength(); k++) {
+                                try {
+                                    if (liNodeList.item(k).getAttributes().getNamedItem("class").getTextContent().equals("content")) {
+                                        String endpointurl = liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim();
+                                        if (endpointurl.endsWith("/")) {
+                                            endpointurl = endpointurl.substring(0, endpointurl.length() - 1);
+                                        }
+
+                                        String SQL = "SELECT * FROM endpoints where endpointUrl='" + endpointurl + "' and source='lodstats'";
+                                        Statement stmt = con.createStatement();
+                                        ResultSet rs = stmt.executeQuery(SQL);
+                                        if (!rs.next()) {
+
+                                            String SQLi = "INSERT INTO endpoints (datasetName,endpointUrl,source) VALUES (?,?,?);";
+                                            PreparedStatement pstmt
+                                                    = con.prepareStatement(SQLi);
+                                            pstmt.setString(1, datasetName);
+                                            pstmt.setString(2, endpointurl);
+                                            pstmt.setString(3, "lodstats");
+                                            //Statement stmt = con.createStatement();
+                                            pstmt.executeUpdate();
+                                            pstmt.close();
+
+                                        }
+                                        rs.close();
+                                        stmt.close();
+                                        System.out.println(liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim());
                                     }
+                                } catch (Exception ex) {
 
-                                    String SQL = "SELECT * FROM endpoints where endpointUrl='" + endpointurl + "' and source='lodstats'";
-                                    Statement stmt = con.createStatement();
-                                    ResultSet rs = stmt.executeQuery(SQL);
-                                    if (!rs.next()) {
-
-                                        String SQLi = "INSERT INTO endpoints (datasetName,endpointUrl,source) VALUES (?,?,?);";
-                                        PreparedStatement pstmt
-                                        = con.prepareStatement(SQLi);
-                                        pstmt.setString(1, datasetName);
-                                        pstmt.setString(2, endpointurl);
-                                        pstmt.setString(3, "lodstats");
-                                        //Statement stmt = con.createStatement();
-                                        pstmt.executeUpdate();
-                                        pstmt.close();
-
-                                    }
-                                    rs.close();
-                                    stmt.close();
-                                    System.out.println(liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim());
                                 }
-                            } catch (Exception ex) {
-
+                                // .getChildNodes().item(1).getTextContent();
                             }
-                            // .getChildNodes().item(1).getTextContent();
                         }
+                        //System.out.println(format + " " + datasetName + " " + url);
+                    } catch (Exception ex) {
+                        System.out.println(ex.toString());
                     }
-                    //System.out.println(format + " " + datasetName + " " + url);
-                } catch (Exception ex) {
-                    System.out.println(ex.toString());
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+                        // do something with the current element
+                        //                 System.out.println(node.getNodeName());
+                    }
                 }
-                if (node.getNodeType() == Node.ELEMENT_NODE) {
-                    // do something with the current element
-                    //                 System.out.println(node.getNodeName());
-                }
+                //    recursiveXmlParse(doc, i, isStarted);
             }
-            //    recursiveXmlParse(doc, i, isStarted);
-        }
         } catch (Exception ex) {
 
         }
@@ -5394,23 +5399,23 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private void btnParseLODCloudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseLODCloudActionPerformed
         try {
             final String query
-            = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-            + "prefix void: <http://rdfs.org/ns/void#>\n"
-            + "prefix dcterms: <http://purl.org/dc/terms/>\n"
-            + "prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n"
-            + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
-            + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-            + "prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
-            + "prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>\n"
-            + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
-            + "\n"
-            + "select ?subject ?dataset ?title ?sparqlEndpoint where {\n"
-            + "  ?dataset a void:Dataset ;\n"
-            + "             void:sparqlEndpoint ?sparqlEndpoint ;"
-            //   + "             tag:taggedWithTag ?tags ;"
-            + "             dcterms:subject ?subject ;"
-            + "             dcterms:title ?title.\n"
-            + "}";
+                    = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                    + "prefix void: <http://rdfs.org/ns/void#>\n"
+                    + "prefix dcterms: <http://purl.org/dc/terms/>\n"
+                    + "prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n"
+                    + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
+                    + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                    + "prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
+                    + "prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>\n"
+                    + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                    + "\n"
+                    + "select ?subject ?dataset ?title ?sparqlEndpoint where {\n"
+                    + "  ?dataset a void:Dataset ;\n"
+                    + "             void:sparqlEndpoint ?sparqlEndpoint ;"
+                    //   + "             tag:taggedWithTag ?tags ;"
+                    + "             dcterms:subject ?subject ;"
+                    + "             dcterms:title ?title.\n"
+                    + "}";
             //                    + "  ?void:Dataset a dcterms:title ?title ;\n"
             //                    + "             void:sparqlEndpoint ?sparqlEndpoint.\n"
             //                    + "}";
@@ -5426,13 +5431,13 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 final QuerySolution qs = rs.next();
 
                 SparqlEndpoint.insertNewEndpoint(qs.get("title").toString(), qs.get("sparqlEndpoint").toString(), "lodcloud", 0);//qs.get("triples").asLiteral().getInt());
-            System.out.println("Dataset:" + qs.get("dataset")
-                + "\n\tTitle: " + qs.get("title")
-                // + "\n\tTriples" + qs.get("triples")
-                + "\n\t Sparql Endpoint: " + qs.get("sparqlEndpoint")
-                //+ "\n\t Tags " + qs.get("tags")
-                + "\n\t Subject: " + qs.get("subject"));
-        }
+                System.out.println("Dataset:" + qs.get("dataset")
+                        + "\n\tTitle: " + qs.get("title")
+                        // + "\n\tTriples" + qs.get("triples")
+                        + "\n\t Sparql Endpoint: " + qs.get("sparqlEndpoint")
+                        //+ "\n\t Tags " + qs.get("tags")
+                        + "\n\t Subject: " + qs.get("subject"));
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -5460,15 +5465,15 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             //  txtSeeds.setText(pageresp);
             //  String pageresp = page1.getWebResponse().getContentAsString();
             //            while ((line = rd.readLine()) != null) {
-                //                response.append(line);
-                //
-                //                //    response.append('\r');
-                //            }
+            //                response.append(line);
+            //
+            //                //    response.append('\r');
+            //            }
 
             JSONObject obj = new JSONObject(pageresp);
             //            if (!obj.getString("status").equals("OK")) {
-                //                return;
-                //            }
+            //                return;
+            //            }
 
             JSONArray arr = ((JSONObject) obj.get("result")).getJSONArray("results");
 
@@ -5476,13 +5481,13 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 if (arr.getJSONObject(i).get("format").toString().equals("sparql") || arr.getJSONObject(i).get("format").toString().equals("api/sparql")) {
                     SparqlEndpoint.insertNewEndpoint("", arr.getJSONObject(i).get("url").toString(), "datahub.io", 0);//qs.get("triples").asLiteral().getInt());
 
-                //                    txtSeeds.append(arr.getJSONObject(i).get("format").toString());
-                //                    txtSeeds.append(":");
-                //                    txtSeeds.append(arr.getJSONObject(i).get("url").toString());
-                //                    txtSeeds.append("\n");
+                    //                    txtSeeds.append(arr.getJSONObject(i).get("format").toString());
+                    //                    txtSeeds.append(":");
+                    //                    txtSeeds.append(arr.getJSONObject(i).get("url").toString());
+                    //                    txtSeeds.append("\n");
+                }
             }
-        }
-        // get the first result
+            // get the first result
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -5518,38 +5523,87 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             rd.close();
             String[] s = response.toString().replace(((char) 13), ' ').replace((char) 10, ' ').split("  ]   }, ");
             //    response.toString().replace((char)13, ' ').replace(char) 10, ' ').split("  ]  },");
-        //            HtmlPage page1 = webClient.getPage("http://sparqles.okfn.org/api/endpoint/list");
-        //            String content = page1.getWebResponse().getContentAsString();
-        //            String[] s = content.split("},");
-        for (int i = 0; i < s.length; i++) {
-            int sparqluristart = s[i].indexOf("uri") + 7;
-            int dataseturistart = s[i].indexOf("uri", sparqluristart + 6) + 7;
-            int labelstart = s[i].indexOf("label") + 8;
-            String sparqlurl = "";
-            String datasetUrl = "";
-            String label = "";
+            //            HtmlPage page1 = webClient.getPage("http://sparqles.okfn.org/api/endpoint/list");
+            //            String content = page1.getWebResponse().getContentAsString();
+            //            String[] s = content.split("},");
+            for (int i = 0; i < s.length; i++) {
+                int sparqluristart = s[i].indexOf("uri") + 7;
+                int dataseturistart = s[i].indexOf("uri", sparqluristart + 6) + 7;
+                int labelstart = s[i].indexOf("label") + 8;
+                String sparqlurl = "";
+                String datasetUrl = "";
+                String label = "";
 
-            try {
-                sparqlurl = s[i].substring(sparqluristart, s[i].indexOf(",", sparqluristart) - 1).replace('"', ' ').trim();
+                try {
+                    sparqlurl = s[i].substring(sparqluristart, s[i].indexOf(",", sparqluristart) - 1).replace('"', ' ').trim();
                 } catch (Exception ex) {
                 }
                 try {
                     datasetUrl = s[i].substring(dataseturistart, s[i].indexOf(",", dataseturistart) - 1).replace('"', ' ').trim();
-                    } catch (Exception ex) {
-                    }
-                    try {
-                        label = s[i].substring(labelstart, s[i].indexOf("}", labelstart)).replace('"', ' ').trim();
-                        } catch (Exception ex) {
-                        }
-                        SparqlEndpoint.insertNewEndpoint(label, sparqlurl, "sparqles", 0);
-                        System.out.println(sparqlurl + datasetUrl + label);
-                    }
-                    String a = s[1];
-                    //               baseUrl = page1.getUrl().toString();
-                } catch (Exception ex2) {
-                    String aaa = "deneme";
-                }        // TODO add your handling code here:
+                } catch (Exception ex) {
+                }
+                try {
+                    label = s[i].substring(labelstart, s[i].indexOf("}", labelstart)).replace('"', ' ').trim();
+                } catch (Exception ex) {
+                }
+                SparqlEndpoint.insertNewEndpoint(label, sparqlurl, "sparqles", 0);
+                System.out.println(sparqlurl + datasetUrl + label);
+            }
+            String a = s[1];
+            //               baseUrl = page1.getUrl().toString();
+        } catch (Exception ex2) {
+            String aaa = "deneme";
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_btnParseSparqlesActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+
+        try {
+            PreparedStatement pstmt
+                    = con.prepareStatement("select id,endpointUrl from endpoints where advancedFilter is null;");
+
+            ResultSet rs = pstmt.executeQuery();;
+
+            // iterate through the java resultset
+            while (rs.next()) {
+                //int id = rs.getInt("id");
+                int id = rs.getInt("id");
+                String url = rs.getString("endpointUrl");
+                try {
+                    JenaSparql.queryTimeOut=5000;
+                    String s1 = JenaSparql.getSparqlXMLResult(url, "select * where {?s ?p ?o} LIMIT 5");
+                    String s2 = JenaSparql.getSparqlXMLResult(url, "select * where {?s ?p ?o} LIMIT 10");
+
+                    if (s1 == null) {
+                        String SQLi = "update endpoints set advancedFilter = 0 where id = ?;";
+                        PreparedStatement update = con2.prepareStatement(SQLi);
+                        update.setInt(1, id);
+                        update.executeUpdate();
+                        update.close();
+                    } else if (!s1.contentEquals(s2)) {
+                        String SQLi = "update endpoints set advancedFilter = 1 where id = ?;";
+                        PreparedStatement update = con2.prepareStatement(SQLi);
+                        update.setInt(1, id);
+                        update.executeUpdate();
+                        update.close();
+                    } else {
+                        String SQLi = "update endpoints set advancedFilter = 2 where id = ?;";
+                        PreparedStatement update = con2.prepareStatement(SQLi);
+                        update.setInt(1, id);
+                        update.executeUpdate();
+                        update.close();
+                    }
+                } catch (Exception ex) {
+                    System.out.println("in while:" + ex.getMessage());
+                }
+            }
+            rs.close();
+            pstmt.close();
+
+        } catch (Exception ex) {
+            System.out.println("out:" + ex.getMessage());
+        }       // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
     public static List<String> extractUrls(String text) {
         List<String> containedUrls = new ArrayList<String>();
@@ -5851,6 +5905,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JButton btnStopThreads4;
     private javax.swing.JButton btnTfidf;
     private javax.swing.JButton btnWordnetAnalyzer;
+    private java.awt.Button button1;
     private java.awt.Choice choiceSearchEngine;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
