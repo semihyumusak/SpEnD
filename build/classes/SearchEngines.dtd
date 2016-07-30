@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/SearchEngines.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE searchEngine1 SYSTEM "SearchEngines.dtd">
+
+    <searchEngine1>
+    ...
+    </searchEngine1>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT searchEngine1 (name|excludedUrls|baseUrl|queryTextBoxName|submitButtonId|submitButtonName|defaultBrowser|nextButtonIdentifier)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT name (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT excludedUrls EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT baseUrl (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT queryTextBoxName (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT submitButtonId (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT submitButtonName (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT defaultBrowser EMPTY>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT nextButtonIdentifier (#PCDATA)>

@@ -198,7 +198,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         addWindowListener(this);
         enableEvents(EventSearchWorker.EVENT_ID);  // enable my event's
         threadsAnalysis = new Thread[maxThreadAnalysis];
-        threadsSearchQueue = new Thread[lstSearchEngines4.getSelectedIndices().length];
+        threadsSearchQueue = new Thread[lstSearchEngines.getSelectedIndices().length];
         threadsSparql = new Thread[maxThreadSparql];
 
     }
@@ -260,7 +260,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     }
 
     private void initializeSearchEngineListBox() {
-        lstSearchEngines4.setModel(new javax.swing.AbstractListModel() {
+        lstSearchEngines.setModel(new javax.swing.AbstractListModel() {
 
             String[] strings = getSearchEngineNamesArray();//{"Google", "Bing", "Yahoo", "Yandex"};
 
@@ -273,13 +273,13 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             }
         });
 
-        int size = lstSearchEngines4.getModel().getSize();
+        int size = lstSearchEngines.getModel().getSize();
         int[] i = new int[size];
         for (int a = 0; a < size; a++) {
             i[a] = a;
         }
 
-        lstSearchEngines4.setSelectedIndices(i);
+        lstSearchEngines.setSelectedIndices(i);
 
     }
 
@@ -346,6 +346,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         }
         return null;
     }
+
     /*
      private BrowserVersion getBrowserVersionFromName(String browsername) {
      switch (browsername) {
@@ -397,7 +398,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //                return null;
 //        }
 //    }
-
 //    public enum SearchEngineStruct {
 //
 //        Google, Yahoo, Bing, Yandex;
@@ -541,168 +541,61 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         pnlCrawler = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtSearchTexts = new javax.swing.JTextArea();
-        lblSearchText = new java.awt.Label();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lstSearchEngines = new javax.swing.JList();
-        jLabel1 = new javax.swing.JLabel();
-        txtMaxPage = new javax.swing.JTextField();
-        lblMessage = new javax.swing.JLabel();
-        label3 = new java.awt.Label();
-        lblCount = new javax.swing.JLabel();
-        btnRunAnalyzer = new javax.swing.JButton();
-        btnRunMultitextSearch = new javax.swing.JButton();
-        btnCreateSearchQueue = new javax.swing.JButton();
-        btnStopThreads = new javax.swing.JButton();
-        btnStopSearchQueue = new javax.swing.JButton();
-        btnStopAnalyzer = new javax.swing.JButton();
-        btnCreateSearchQueueFromPreviousUrls = new javax.swing.JButton();
-        label1 = new java.awt.Label();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        pnlCrawler1 = new javax.swing.JPanel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        txtSearchTexts1 = new javax.swing.JTextArea();
-        lblSearchText1 = new java.awt.Label();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        lstSearchEngines1 = new javax.swing.JList();
-        jLabel10 = new javax.swing.JLabel();
-        txtMaxPage1 = new javax.swing.JTextField();
-        lblMessage1 = new javax.swing.JLabel();
-        label4 = new java.awt.Label();
-        lblCount1 = new javax.swing.JLabel();
-        btnRunAnalyzer1 = new javax.swing.JButton();
-        btnRunMultitextSearch1 = new javax.swing.JButton();
-        btnCreateSearchQueue1 = new javax.swing.JButton();
-        btnStopThreads1 = new javax.swing.JButton();
-        btnStopSearchQueue1 = new javax.swing.JButton();
-        btnStopAnalyzer1 = new javax.swing.JButton();
-        btnCreateSearchQueueFromPreviousUrls1 = new javax.swing.JButton();
-        label2 = new java.awt.Label();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        pnlCrawler2 = new javax.swing.JPanel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        txtSearchTexts2 = new javax.swing.JTextArea();
-        lblSearchText2 = new java.awt.Label();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        lstSearchEngines2 = new javax.swing.JList();
-        jLabel12 = new javax.swing.JLabel();
-        txtMaxPage2 = new javax.swing.JTextField();
-        lblMessage2 = new javax.swing.JLabel();
-        label5 = new java.awt.Label();
-        lblCount2 = new javax.swing.JLabel();
-        btnRunAnalyzer2 = new javax.swing.JButton();
-        btnRunMultitextSearch2 = new javax.swing.JButton();
-        btnCreateSearchQueue2 = new javax.swing.JButton();
-        btnStopThreads2 = new javax.swing.JButton();
-        btnStopSearchQueue2 = new javax.swing.JButton();
-        btnStopAnalyzer2 = new javax.swing.JButton();
-        btnCreateSearchQueueFromPreviousUrls2 = new javax.swing.JButton();
-        label6 = new java.awt.Label();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        pnlCrawler3 = new javax.swing.JPanel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        txtSearchTexts3 = new javax.swing.JTextArea();
-        lblSearchText3 = new java.awt.Label();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        lstSearchEngines3 = new javax.swing.JList();
-        jLabel14 = new javax.swing.JLabel();
-        txtMaxPage3 = new javax.swing.JTextField();
-        lblMessage3 = new javax.swing.JLabel();
-        label7 = new java.awt.Label();
-        lblCount3 = new javax.swing.JLabel();
-        btnRunAnalyzer3 = new javax.swing.JButton();
-        btnRunMultitextSearch3 = new javax.swing.JButton();
-        btnCreateSearchQueue3 = new javax.swing.JButton();
-        btnStopThreads3 = new javax.swing.JButton();
-        btnStopSearchQueue3 = new javax.swing.JButton();
-        btnStopAnalyzer3 = new javax.swing.JButton();
-        btnCreateSearchQueueFromPreviousUrls3 = new javax.swing.JButton();
-        label8 = new java.awt.Label();
-        jLabel15 = new javax.swing.JLabel();
-        jScrollPane14 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
-        pnlCrawler4 = new javax.swing.JPanel();
         jScrollPane15 = new javax.swing.JScrollPane();
-        txtSearchTexts4 = new javax.swing.JTextArea();
+        txtSearchTexts = new javax.swing.JTextArea();
         lblSearchText4 = new java.awt.Label();
         jScrollPane16 = new javax.swing.JScrollPane();
-        lstSearchEngines4 = new javax.swing.JList();
+        lstSearchEngines = new javax.swing.JList();
         jLabel16 = new javax.swing.JLabel();
-        txtMaxPage4 = new javax.swing.JTextField();
+        txtMaxPage = new javax.swing.JTextField();
         lblMessage4 = new javax.swing.JLabel();
         label9 = new java.awt.Label();
         lblCount4 = new javax.swing.JLabel();
-        btnRunAnalyzer4 = new javax.swing.JButton();
-        btnRunMultitextSearch4 = new javax.swing.JButton();
-        btnCreateSearchQueue4 = new javax.swing.JButton();
+        btnRunAnalyzer = new javax.swing.JButton();
+        btnRunMultitextSearch = new javax.swing.JButton();
+        btnCreateSearchQueue = new javax.swing.JButton();
         btnStopThreads4 = new javax.swing.JButton();
         btnStopSearchQueue4 = new javax.swing.JButton();
         btnStopAnalyzer4 = new javax.swing.JButton();
-        btnCreateSearchQueueFromPreviousUrls4 = new javax.swing.JButton();
+        btnCreateSearchQueueFromPreviousUrls = new javax.swing.JButton();
         label10 = new java.awt.Label();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane17 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        jTable = new javax.swing.JTable();
+        txtSeeds = new java.awt.TextArea();
+        jPanel1 = new javax.swing.JPanel();
         jButtonAnalyzeEndpointHtml = new javax.swing.JButton();
         jButtonPostFilterUrls = new javax.swing.JButton();
-        txtSeeds = new java.awt.TextArea();
-        pnlCrawler5 = new javax.swing.JPanel();
-        jScrollPane18 = new javax.swing.JScrollPane();
-        txtSearchTexts5 = new javax.swing.JTextArea();
-        lblSearchText5 = new java.awt.Label();
-        jScrollPane19 = new javax.swing.JScrollPane();
-        lstSearchEngines5 = new javax.swing.JList();
-        jLabel18 = new javax.swing.JLabel();
-        txtMaxPage5 = new javax.swing.JTextField();
-        lblMessage5 = new javax.swing.JLabel();
-        label11 = new java.awt.Label();
-        lblCount5 = new javax.swing.JLabel();
-        btnRunAnalyzer5 = new javax.swing.JButton();
-        btnRunMultitextSearch5 = new javax.swing.JButton();
-        btnCreateSearchQueue5 = new javax.swing.JButton();
-        btnStopThreads5 = new javax.swing.JButton();
-        btnStopSearchQueue5 = new javax.swing.JButton();
-        btnStopAnalyzer5 = new javax.swing.JButton();
-        btnCreateSearchQueueFromPreviousUrls5 = new javax.swing.JButton();
-        label12 = new java.awt.Label();
-        jLabel19 = new javax.swing.JLabel();
-        jScrollPane20 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel9 = new javax.swing.JPanel();
+        txtSparqlesUrl = new javax.swing.JTextField();
+        txtLodstatsUrl = new javax.swing.JTextField();
+        txtDatahubUrl = new javax.swing.JTextField();
         btnParseSparqles = new javax.swing.JButton();
+        btnParseDatahub = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
         btnParseLODCloud = new javax.swing.JButton();
         btnLodstats = new javax.swing.JButton();
-        btnStatusMonitor = new javax.swing.JButton();
-        btnParseSemanticDiscovery = new javax.swing.JButton();
-        btnParseDatahub = new javax.swing.JButton();
-        txtDatahubUrl = new javax.swing.JTextField();
-        txtLodstatsUrl = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        txtSparqlesUrl = new javax.swing.JTextField();
+        jPanel10 = new javax.swing.JPanel();
         btnStatisticalAnalysis = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        btnStatusMonitor = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         txtNumOfThreadsStatisticalAnalysis = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        txtNumOfThreadsStatusMonitoring = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtStatisticalAnalysisTimeout = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        txtNumOfThreadsStatusMonitoring = new javax.swing.JTextField();
+        txtStatisticalAnalysisTimeout = new javax.swing.JTextField();
         txtStatisticalAnalysisCheckEveryHours = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jButtonGetSparqlEndpointWebPages = new javax.swing.JButton();
+        label1 = new java.awt.Label();
         jPanel3 = new javax.swing.JPanel();
         jTextField2 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextAreaFederatedQuery = new javax.swing.JTextArea();
         jButton4 = new javax.swing.JButton();
+        btnParseSemanticDiscovery = new javax.swing.JButton();
+        jButtonGetSparqlEndpointWebPages = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButtonRunClassCollector = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -734,6 +627,12 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         jButtonWordnetlevel = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         btnIoTCollectResults = new javax.swing.JButton();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        panel1 = new java.awt.Panel();
+        jPanel8 = new javax.swing.JPanel();
+        button1 = new java.awt.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -864,7 +763,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Sparql Endpoint Crawler and Analyzer(SpECAN) v1.0");
+        setTitle("Sparql Endpoint Crawler and Analyzer(SPECAN) v2.0");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
@@ -879,19 +778,18 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
         txtSearchTexts.setColumns(20);
         txtSearchTexts.setRows(5);
-        jScrollPane2.setViewportView(txtSearchTexts);
+        jScrollPane15.setViewportView(txtSearchTexts);
 
-        lblSearchText.setText("Search Text");
+        lblSearchText4.setText("Search Texts (Seperated by lines)");
 
         lstSearchEngines.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Google", "Bing", "Yahoo", "Yandex" };
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(lstSearchEngines);
-        lstSearchEngines.getAccessibleContext().setAccessibleName("");
+        jScrollPane16.setViewportView(lstSearchEngines);
 
-        jLabel1.setText("Max. Page");
+        jLabel16.setText("Max. Page");
 
         txtMaxPage.setText("10");
         txtMaxPage.addActionListener(new java.awt.event.ActionListener() {
@@ -900,13 +798,13 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             }
         });
 
-        lblMessage.setForeground(new java.awt.Color(255, 0, 51));
+        lblMessage4.setForeground(new java.awt.Color(255, 0, 51));
 
-        label3.setText("Search Engines");
+        label9.setText("Search Engines");
 
-        lblCount.setForeground(new java.awt.Color(255, 0, 0));
-        lblCount.setText("Count");
-        lblCount.setName(""); // NOI18N
+        lblCount4.setForeground(new java.awt.Color(255, 0, 0));
+        lblCount4.setText("Count");
+        lblCount4.setName(""); // NOI18N
 
         btnRunAnalyzer.setText("Run URL Analyzer");
         btnRunAnalyzer.addActionListener(new java.awt.event.ActionListener() {
@@ -922,792 +820,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             }
         });
 
-        btnCreateSearchQueue.setText("Create Initial Search Queue");
+        btnCreateSearchQueue.setText("Search");
         btnCreateSearchQueue.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCreateSearchQueueActionPerformed(evt);
-            }
-        });
-
-        btnStopThreads.setText("Stop Threads");
-        btnStopThreads.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopThreadsActionPerformed(evt);
-            }
-        });
-
-        btnStopSearchQueue.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopSearchQueue.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopSearchQueueActionPerformed(evt);
-            }
-        });
-
-        btnStopAnalyzer.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopAnalyzer.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopAnalyzerActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueueFromPreviousUrls.setText("Create Search From Previous Domains");
-        btnCreateSearchQueueFromPreviousUrls.setActionCommand("Create Search In Previous Urls");
-        btnCreateSearchQueueFromPreviousUrls.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueueFromPreviousUrlsActionPerformed(evt);
-            }
-        });
-
-        label1.setText("Generated Urls");
-
-        jLabel2.setText("# of Extracted URLs:");
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SearchEngine", "Search Text", "URL", "Date Created"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable2.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable2.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable2.getColumnModel().getColumn(3).setPreferredWidth(50);
-        }
-
-        javax.swing.GroupLayout pnlCrawlerLayout = new javax.swing.GroupLayout(pnlCrawler);
-        pnlCrawler.setLayout(pnlCrawlerLayout);
-        pnlCrawlerLayout.setHorizontalGroup(
-            pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawlerLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSearchText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCreateSearchQueue)
-                                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                                                .addComponent(btnRunMultitextSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopSearchQueue, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                                                .addComponent(btnRunAnalyzer, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopAnalyzer, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnCreateSearchQueueFromPreviousUrls)))
-                                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                                        .addComponent(lblCount, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMaxPage, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(294, 294, 294))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawlerLayout.createSequentialGroup()
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnStopThreads)
-                        .addGap(37, 37, 37))
-                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(599, 599, 599)))
-                .addContainerGap())
-        );
-        pnlCrawlerLayout.setVerticalGroup(
-            pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                            .addComponent(btnCreateSearchQueue)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnStopSearchQueue, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRunMultitextSearch))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRunAnalyzer)
-                                .addComponent(btnStopAnalyzer, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateSearchQueueFromPreviousUrls)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage)
-                            .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblCount)
-                                .addComponent(jLabel2))
-                            .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtMaxPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStopThreads))
-                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        lblSearchText.getAccessibleContext().setAccessibleName("");
-
-        txtSearchTexts1.setColumns(20);
-        txtSearchTexts1.setRows(5);
-        jScrollPane6.setViewportView(txtSearchTexts1);
-
-        lblSearchText1.setText("Search Text");
-
-        lstSearchEngines1.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Google", "Bing", "Yahoo", "Yandex" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane7.setViewportView(lstSearchEngines1);
-
-        jLabel10.setText("Max. Page");
-
-        txtMaxPage1.setText("10");
-        txtMaxPage1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaxPage1ActionPerformed(evt);
-            }
-        });
-
-        lblMessage1.setForeground(new java.awt.Color(255, 0, 51));
-
-        label4.setText("Search Engines");
-
-        lblCount1.setForeground(new java.awt.Color(255, 0, 0));
-        lblCount1.setText("Count");
-        lblCount1.setName(""); // NOI18N
-
-        btnRunAnalyzer1.setText("Run URL Analyzer");
-        btnRunAnalyzer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunAnalyzer1ActionPerformed(evt);
-            }
-        });
-
-        btnRunMultitextSearch1.setText("Run Search Queue");
-        btnRunMultitextSearch1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunMultitextSearch1ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueue1.setText("Create Initial Search Queue");
-        btnCreateSearchQueue1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueue1ActionPerformed(evt);
-            }
-        });
-
-        btnStopThreads1.setText("Stop Threads");
-        btnStopThreads1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopThreads1ActionPerformed(evt);
-            }
-        });
-
-        btnStopSearchQueue1.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopSearchQueue1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopSearchQueue1ActionPerformed(evt);
-            }
-        });
-
-        btnStopAnalyzer1.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopAnalyzer1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopAnalyzer1ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueueFromPreviousUrls1.setText("Create Search From Previous Domains");
-        btnCreateSearchQueueFromPreviousUrls1.setActionCommand("Create Search In Previous Urls");
-        btnCreateSearchQueueFromPreviousUrls1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueueFromPreviousUrls1ActionPerformed(evt);
-            }
-        });
-
-        label2.setText("Generated Urls");
-
-        jLabel11.setText("# of Extracted URLs:");
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SearchEngine", "Search Text", "URL", "Date Created"
-            }
-        ));
-        jScrollPane8.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable3.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable3.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable3.getColumnModel().getColumn(3).setPreferredWidth(50);
-        }
-
-        javax.swing.GroupLayout pnlCrawler1Layout = new javax.swing.GroupLayout(pnlCrawler1);
-        pnlCrawler1.setLayout(pnlCrawler1Layout);
-        pnlCrawler1Layout.setHorizontalGroup(
-            pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                        .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSearchText1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                                .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCreateSearchQueue1)
-                                            .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                                                .addComponent(btnRunMultitextSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopSearchQueue1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                                                .addComponent(btnRunAnalyzer1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopAnalyzer1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnCreateSearchQueueFromPreviousUrls1)))
-                                    .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                                        .addComponent(lblCount1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMaxPage1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(294, 294, 294))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnStopThreads1)
-                        .addGap(37, 37, 37))
-                    .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMessage1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(599, 599, 599)))
-                .addContainerGap())
-        );
-        pnlCrawler1Layout.setVerticalGroup(
-            pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchText1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                            .addComponent(btnCreateSearchQueue1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnStopSearchQueue1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRunMultitextSearch1))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRunAnalyzer1)
-                                .addComponent(btnStopAnalyzer1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateSearchQueueFromPreviousUrls1)))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage1)
-                            .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblCount1)
-                                .addComponent(jLabel11))
-                            .addGroup(pnlCrawler1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtMaxPage1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel10)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStopThreads1))
-                    .addGroup(pnlCrawler1Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        txtSearchTexts2.setColumns(20);
-        txtSearchTexts2.setRows(5);
-        jScrollPane9.setViewportView(txtSearchTexts2);
-
-        lblSearchText2.setText("Search Text");
-
-        lstSearchEngines2.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Google", "Bing", "Yahoo", "Yandex" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane10.setViewportView(lstSearchEngines2);
-
-        jLabel12.setText("Max. Page");
-
-        txtMaxPage2.setText("10");
-        txtMaxPage2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaxPage2ActionPerformed(evt);
-            }
-        });
-
-        lblMessage2.setForeground(new java.awt.Color(255, 0, 51));
-
-        label5.setText("Search Engines");
-
-        lblCount2.setForeground(new java.awt.Color(255, 0, 0));
-        lblCount2.setText("Count");
-        lblCount2.setName(""); // NOI18N
-
-        btnRunAnalyzer2.setText("Run URL Analyzer");
-        btnRunAnalyzer2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunAnalyzer2ActionPerformed(evt);
-            }
-        });
-
-        btnRunMultitextSearch2.setText("Run Search Queue");
-        btnRunMultitextSearch2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunMultitextSearch2ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueue2.setText("Create Initial Search Queue");
-        btnCreateSearchQueue2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueue2ActionPerformed(evt);
-            }
-        });
-
-        btnStopThreads2.setText("Stop Threads");
-        btnStopThreads2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopThreads2ActionPerformed(evt);
-            }
-        });
-
-        btnStopSearchQueue2.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopSearchQueue2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopSearchQueue2ActionPerformed(evt);
-            }
-        });
-
-        btnStopAnalyzer2.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopAnalyzer2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopAnalyzer2ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueueFromPreviousUrls2.setText("Create Search From Previous Domains");
-        btnCreateSearchQueueFromPreviousUrls2.setActionCommand("Create Search In Previous Urls");
-        btnCreateSearchQueueFromPreviousUrls2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueueFromPreviousUrls2ActionPerformed(evt);
-            }
-        });
-
-        label6.setText("Generated Urls");
-
-        jLabel13.setText("# of Extracted URLs:");
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SearchEngine", "Search Text", "URL", "Date Created"
-            }
-        ));
-        jScrollPane11.setViewportView(jTable4);
-        if (jTable4.getColumnModel().getColumnCount() > 0) {
-            jTable4.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable4.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable4.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable4.getColumnModel().getColumn(3).setPreferredWidth(50);
-        }
-
-        javax.swing.GroupLayout pnlCrawler2Layout = new javax.swing.GroupLayout(pnlCrawler2);
-        pnlCrawler2.setLayout(pnlCrawler2Layout);
-        pnlCrawler2Layout.setHorizontalGroup(
-            pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                        .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSearchText2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                                .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCreateSearchQueue2)
-                                            .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                                                .addComponent(btnRunMultitextSearch2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopSearchQueue2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                                                .addComponent(btnRunAnalyzer2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopAnalyzer2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnCreateSearchQueueFromPreviousUrls2)))
-                                    .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                                        .addComponent(lblCount2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMaxPage2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(294, 294, 294))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnStopThreads2)
-                        .addGap(37, 37, 37))
-                    .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                        .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMessage2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(599, 599, 599)))
-                .addContainerGap())
-        );
-        pnlCrawler2Layout.setVerticalGroup(
-            pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchText2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                            .addComponent(btnCreateSearchQueue2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnStopSearchQueue2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRunMultitextSearch2))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRunAnalyzer2)
-                                .addComponent(btnStopAnalyzer2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateSearchQueueFromPreviousUrls2)))
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage2)
-                            .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblCount2)
-                                .addComponent(jLabel13))
-                            .addGroup(pnlCrawler2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtMaxPage2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel12)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStopThreads2))
-                    .addGroup(pnlCrawler2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        txtSearchTexts3.setColumns(20);
-        txtSearchTexts3.setRows(5);
-        jScrollPane12.setViewportView(txtSearchTexts3);
-
-        lblSearchText3.setText("Search Text");
-
-        lstSearchEngines3.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Google", "Bing", "Yahoo", "Yandex" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane13.setViewportView(lstSearchEngines3);
-
-        jLabel14.setText("Max. Page");
-
-        txtMaxPage3.setText("10");
-        txtMaxPage3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaxPage3ActionPerformed(evt);
-            }
-        });
-
-        lblMessage3.setForeground(new java.awt.Color(255, 0, 51));
-
-        label7.setText("Search Engines");
-
-        lblCount3.setForeground(new java.awt.Color(255, 0, 0));
-        lblCount3.setText("Count");
-        lblCount3.setName(""); // NOI18N
-
-        btnRunAnalyzer3.setText("Run URL Analyzer");
-        btnRunAnalyzer3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunAnalyzer3ActionPerformed(evt);
-            }
-        });
-
-        btnRunMultitextSearch3.setText("Run Search Queue");
-        btnRunMultitextSearch3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunMultitextSearch3ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueue3.setText("Create Initial Search Queue");
-        btnCreateSearchQueue3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueue3ActionPerformed(evt);
-            }
-        });
-
-        btnStopThreads3.setText("Stop Threads");
-        btnStopThreads3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopThreads3ActionPerformed(evt);
-            }
-        });
-
-        btnStopSearchQueue3.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopSearchQueue3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopSearchQueue3ActionPerformed(evt);
-            }
-        });
-
-        btnStopAnalyzer3.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopAnalyzer3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopAnalyzer3ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueueFromPreviousUrls3.setText("Create Search From Previous Domains");
-        btnCreateSearchQueueFromPreviousUrls3.setActionCommand("Create Search In Previous Urls");
-        btnCreateSearchQueueFromPreviousUrls3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueueFromPreviousUrls3ActionPerformed(evt);
-            }
-        });
-
-        label8.setText("Generated Urls");
-
-        jLabel15.setText("# of Extracted URLs:");
-
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SearchEngine", "Search Text", "URL", "Date Created"
-            }
-        ));
-        jScrollPane14.setViewportView(jTable5);
-        if (jTable5.getColumnModel().getColumnCount() > 0) {
-            jTable5.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable5.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable5.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable5.getColumnModel().getColumn(3).setPreferredWidth(50);
-        }
-
-        javax.swing.GroupLayout pnlCrawler3Layout = new javax.swing.GroupLayout(pnlCrawler3);
-        pnlCrawler3.setLayout(pnlCrawler3Layout);
-        pnlCrawler3Layout.setHorizontalGroup(
-            pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                        .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSearchText3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                                .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCreateSearchQueue3)
-                                            .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                                                .addComponent(btnRunMultitextSearch3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopSearchQueue3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                                                .addComponent(btnRunAnalyzer3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopAnalyzer3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnCreateSearchQueueFromPreviousUrls3)))
-                                    .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                                        .addComponent(lblCount3, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMaxPage3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(294, 294, 294))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnStopThreads3)
-                        .addGap(37, 37, 37))
-                    .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMessage3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(599, 599, 599)))
-                .addContainerGap())
-        );
-        pnlCrawler3Layout.setVerticalGroup(
-            pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchText3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                            .addComponent(btnCreateSearchQueue3)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnStopSearchQueue3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRunMultitextSearch3))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRunAnalyzer3)
-                                .addComponent(btnStopAnalyzer3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateSearchQueueFromPreviousUrls3)))
-                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage3)
-                            .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblCount3)
-                                .addComponent(jLabel15))
-                            .addGroup(pnlCrawler3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtMaxPage3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel14)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStopThreads3))
-                    .addGroup(pnlCrawler3Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(label8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        txtSearchTexts4.setColumns(20);
-        txtSearchTexts4.setRows(5);
-        jScrollPane15.setViewportView(txtSearchTexts4);
-
-        lblSearchText4.setText("Search Text");
-
-        lstSearchEngines4.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Google", "Bing", "Yahoo", "Yandex" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane16.setViewportView(lstSearchEngines4);
-
-        jLabel16.setText("Max. Page");
-
-        txtMaxPage4.setText("10");
-        txtMaxPage4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaxPage4ActionPerformed(evt);
-            }
-        });
-
-        lblMessage4.setForeground(new java.awt.Color(255, 0, 51));
-
-        label9.setText("Search Engines");
-
-        lblCount4.setForeground(new java.awt.Color(255, 0, 0));
-        lblCount4.setText("Count");
-        lblCount4.setName(""); // NOI18N
-
-        btnRunAnalyzer4.setText("Run URL Analyzer");
-        btnRunAnalyzer4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunAnalyzer4ActionPerformed(evt);
-            }
-        });
-
-        btnRunMultitextSearch4.setText("Run Search Queue");
-        btnRunMultitextSearch4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunMultitextSearch4ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueue4.setText("Create Initial Search Queue");
-        btnCreateSearchQueue4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueue4ActionPerformed(evt);
             }
         });
 
@@ -1732,11 +848,11 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             }
         });
 
-        btnCreateSearchQueueFromPreviousUrls4.setText("Create Search From Previous Domains");
-        btnCreateSearchQueueFromPreviousUrls4.setActionCommand("Create Search In Previous Urls");
-        btnCreateSearchQueueFromPreviousUrls4.addActionListener(new java.awt.event.ActionListener() {
+        btnCreateSearchQueueFromPreviousUrls.setText("Domain Learning");
+        btnCreateSearchQueueFromPreviousUrls.setActionCommand("Create Search In Previous Urls");
+        btnCreateSearchQueueFromPreviousUrls.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueueFromPreviousUrls4ActionPerformed(evt);
+                btnCreateSearchQueueFromPreviousUrlsActionPerformed(evt);
             }
         });
 
@@ -1744,7 +860,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
         jLabel17.setText("# of Extracted URLs:");
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1752,13 +868,137 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 "SearchEngine", "Search Text", "URL", "Date Created"
             }
         ));
-        jScrollPane17.setViewportView(jTable6);
-        if (jTable6.getColumnModel().getColumnCount() > 0) {
-            jTable6.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable6.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable6.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable6.getColumnModel().getColumn(3).setPreferredWidth(50);
+        jScrollPane17.setViewportView(jTable);
+        if (jTable.getColumnModel().getColumnCount() > 0) {
+            jTable.getColumnModel().getColumn(0).setPreferredWidth(10);
+            jTable.getColumnModel().getColumn(1).setPreferredWidth(50);
+            jTable.getColumnModel().getColumn(2).setPreferredWidth(200);
+            jTable.getColumnModel().getColumn(3).setPreferredWidth(50);
         }
+
+        txtSeeds.setVisible(false);
+
+        javax.swing.GroupLayout pnlCrawlerLayout = new javax.swing.GroupLayout(pnlCrawler);
+        pnlCrawler.setLayout(pnlCrawlerLayout);
+        pnlCrawlerLayout.setHorizontalGroup(
+            pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawlerLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(lblSearchText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblCount4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addComponent(btnCreateSearchQueue, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(btnRunMultitextSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnStopSearchQueue4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtMaxPage, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addComponent(btnCreateSearchQueueFromPreviousUrls, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(btnRunAnalyzer, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnStopAnalyzer4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(322, 322, 322))
+                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                                .addGap(127, 127, 127)
+                                .addComponent(txtSeeds, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(lblMessage4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(599, 599, 599))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawlerLayout.createSequentialGroup()
+                        .addComponent(jScrollPane17)
+                        .addGap(200, 200, 200)
+                        .addComponent(btnStopThreads4)
+                        .addGap(37, 37, 37)))
+                .addContainerGap())
+        );
+        pnlCrawlerLayout.setVerticalGroup(
+            pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
+                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSearchText4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                        .addComponent(btnCreateSearchQueue)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnStopSearchQueue4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnRunMultitextSearch))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnRunAnalyzer)
+                            .addComponent(btnStopAnalyzer4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCreateSearchQueueFromPreviousUrls))
+                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                        .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(lblCount4))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblMessage4)
+                            .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(txtSeeds, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(22, 22, 22)
+                        .addComponent(btnStopThreads4))
+                    .addGroup(pnlCrawlerLayout.createSequentialGroup()
+                        .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(pnlCrawlerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtMaxPage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel16))
+                            .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(31, 31, 31))
+        );
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(pnlCrawler, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(5525, 5525, 5525))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(pnlCrawler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Crawler", jPanel2);
 
         jButtonAnalyzeEndpointHtml.setText("Analyze Endpoint HTML");
         jButtonAnalyzeEndpointHtml.addActionListener(new java.awt.event.ActionListener() {
@@ -1775,516 +1015,187 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             }
         });
 
-        javax.swing.GroupLayout pnlCrawler4Layout = new javax.swing.GroupLayout(pnlCrawler4);
-        pnlCrawler4.setLayout(pnlCrawler4Layout);
-        pnlCrawler4Layout.setHorizontalGroup(
-            pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                        .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSearchText4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                                        .addComponent(btnRunAnalyzer4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnStopAnalyzer4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnCreateSearchQueueFromPreviousUrls4)
-                                    .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlCrawler4Layout.createSequentialGroup()
-                                            .addComponent(btnCreateSearchQueue4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                            .addComponent(jButtonAnalyzeEndpointHtml, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, pnlCrawler4Layout.createSequentialGroup()
-                                            .addComponent(btnRunMultitextSearch4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(btnStopSearchQueue4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(322, 322, 322))
-                            .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                                .addComponent(lblCount4, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(59, 59, 59)
-                                .addComponent(txtSeeds, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonPostFilterUrls, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMaxPage4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(334, 334, 334))))
-                    .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMessage4, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(599, 599, 599))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane17)
-                        .addGap(200, 200, 200)
-                        .addComponent(btnStopThreads4)
-                        .addGap(37, 37, 37)))
-                .addContainerGap())
-        );
-        pnlCrawler4Layout.setVerticalGroup(
-            pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchText4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane15, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                            .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnCreateSearchQueue4)
-                                .addComponent(jButtonAnalyzeEndpointHtml))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnStopSearchQueue4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRunMultitextSearch4))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRunAnalyzer4)
-                                .addComponent(btnStopAnalyzer4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateSearchQueueFromPreviousUrls4)))
-                    .addComponent(jScrollPane16, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage4)
-                            .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtMaxPage4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel16)
-                                .addComponent(jButtonPostFilterUrls))
-                            .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txtSeeds, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(pnlCrawler4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblCount4)
-                                    .addComponent(jLabel17))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStopThreads4))
-                    .addGroup(pnlCrawler4Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(label10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane17, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Dataset Collection"));
 
-        txtSearchTexts5.setColumns(20);
-        txtSearchTexts5.setRows(5);
-        jScrollPane18.setViewportView(txtSearchTexts5);
+        txtSparqlesUrl.setText("http://sparqles.okfn.org/api/endpoint/list");
 
-        lblSearchText5.setText("Search Text");
+        txtLodstatsUrl.setText("http://stats.lod2.eu");
 
-        lstSearchEngines5.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Google", "Bing", "Yahoo", "Yandex" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane19.setViewportView(lstSearchEngines5);
+        txtDatahubUrl.setText("http://datahub.io/api/3/action/resource_search?query=format:sparql");
+        txtDatahubUrl.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jLabel18.setText("Max. Page");
-
-        txtMaxPage5.setText("10");
-        txtMaxPage5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMaxPage5ActionPerformed(evt);
-            }
-        });
-
-        lblMessage5.setForeground(new java.awt.Color(255, 0, 51));
-
-        label11.setText("Search Engines");
-
-        lblCount5.setForeground(new java.awt.Color(255, 0, 0));
-        lblCount5.setText("Count");
-        lblCount5.setName(""); // NOI18N
-
-        btnRunAnalyzer5.setText("Run URL Analyzer");
-        btnRunAnalyzer5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunAnalyzer5ActionPerformed(evt);
-            }
-        });
-
-        btnRunMultitextSearch5.setText("Run Search Queue");
-        btnRunMultitextSearch5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRunMultitextSearch5ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueue5.setText("Create Initial Search Queue");
-        btnCreateSearchQueue5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueue5ActionPerformed(evt);
-            }
-        });
-
-        btnStopThreads5.setText("Stop Threads");
-        btnStopThreads5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopThreads5ActionPerformed(evt);
-            }
-        });
-
-        btnStopSearchQueue5.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopSearchQueue5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopSearchQueue5ActionPerformed(evt);
-            }
-        });
-
-        btnStopAnalyzer5.setBackground(new java.awt.Color(255, 0, 0));
-        btnStopAnalyzer5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStopAnalyzer5ActionPerformed(evt);
-            }
-        });
-
-        btnCreateSearchQueueFromPreviousUrls5.setText("Create Search From Previous Domains");
-        btnCreateSearchQueueFromPreviousUrls5.setActionCommand("Create Search In Previous Urls");
-        btnCreateSearchQueueFromPreviousUrls5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCreateSearchQueueFromPreviousUrls5ActionPerformed(evt);
-            }
-        });
-
-        label12.setText("Generated Urls");
-
-        jLabel19.setText("# of Extracted URLs:");
-
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "SearchEngine", "Search Text", "URL", "Date Created"
-            }
-        ));
-        jScrollPane20.setViewportView(jTable7);
-        if (jTable7.getColumnModel().getColumnCount() > 0) {
-            jTable7.getColumnModel().getColumn(0).setPreferredWidth(10);
-            jTable7.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jTable7.getColumnModel().getColumn(2).setPreferredWidth(200);
-            jTable7.getColumnModel().getColumn(3).setPreferredWidth(50);
-        }
-
-        javax.swing.GroupLayout pnlCrawler5Layout = new javax.swing.GroupLayout(pnlCrawler5);
-        pnlCrawler5.setLayout(pnlCrawler5Layout);
-        pnlCrawler5Layout.setHorizontalGroup(
-            pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                        .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblSearchText5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                                .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                                        .addGap(0, 0, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(btnCreateSearchQueue5)
-                                            .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                                                .addComponent(btnRunMultitextSearch5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopSearchQueue5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                                                .addComponent(btnRunAnalyzer5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(btnStopAnalyzer5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(btnCreateSearchQueueFromPreviousUrls5)))
-                                    .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                                        .addComponent(lblCount5, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(txtMaxPage5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(294, 294, 294))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCrawler5Layout.createSequentialGroup()
-                        .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 620, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnStopThreads5)
-                        .addGap(37, 37, 37))
-                    .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                        .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblMessage5, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(599, 599, 599)))
-                .addContainerGap())
-        );
-        pnlCrawler5Layout.setVerticalGroup(
-            pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchText5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(label11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, 0)
-                .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jScrollPane18, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                            .addComponent(btnCreateSearchQueue5)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(btnStopSearchQueue5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnRunMultitextSearch5))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnRunAnalyzer5)
-                                .addComponent(btnStopAnalyzer5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnCreateSearchQueueFromPreviousUrls5)))
-                    .addComponent(jScrollPane19, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblMessage5)
-                            .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(lblCount5)
-                                .addComponent(jLabel19))
-                            .addGroup(pnlCrawler5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtMaxPage5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel18)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStopThreads5))
-                    .addGroup(pnlCrawler5Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(label12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane20, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(pnlCrawler4, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381)
-                .addComponent(pnlCrawler5, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381)
-                .addComponent(pnlCrawler3, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381)
-                .addComponent(pnlCrawler2, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381)
-                .addComponent(pnlCrawler1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381)
-                .addComponent(pnlCrawler, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(381, 381, 381))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnlCrawler, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCrawler1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCrawler2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCrawler3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCrawler4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pnlCrawler5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Crawler", jPanel2);
-
-        btnParseSparqles.setText("Parse Sparqles");
+        btnParseSparqles.setText("SPARQLES");
         btnParseSparqles.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParseSparqlesActionPerformed(evt);
             }
         });
 
-        btnParseLODCloud.setLabel("Parse LOD VoID ");
-        btnParseLODCloud.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnParseLODCloudActionPerformed(evt);
-            }
-        });
-
-        btnLodstats.setText("Parse LodStats Endpoints");
-        btnLodstats.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLodstatsActionPerformed(evt);
-            }
-        });
-
-        btnStatusMonitor.setBackground(new java.awt.Color(0, 255, 0));
-        btnStatusMonitor.setText("Start Status Monitoring");
-        btnStatusMonitor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStatusMonitorActionPerformed(evt);
-            }
-        });
-
-        btnParseSemanticDiscovery.setText("Parse SpEnD");
-        btnParseSemanticDiscovery.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnParseSemanticDiscoveryActionPerformed(evt);
-            }
-        });
-
-        btnParseDatahub.setText("Parse Datahub.io");
+        btnParseDatahub.setText("Datahub");
         btnParseDatahub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnParseDatahubActionPerformed(evt);
             }
         });
 
-        txtDatahubUrl.setText("http://datahub.io/api/3/action/resource_search?query=format:sparql");
-
-        txtLodstatsUrl.setText("http://stats.lod2.eu");
-
         jTextField1.setText("http://lod-cloud.net/data/void.ttl");
 
-        txtSparqlesUrl.setText("http://sparqles.okfn.org/api/endpoint/list");
+        btnParseLODCloud.setText("LOD Cloud");
+        btnParseLODCloud.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnParseLODCloudActionPerformed(evt);
+            }
+        });
+
+        btnLodstats.setText("LODStats");
+        btnLodstats.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLodstatsActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
+        jPanel9.setLayout(jPanel9Layout);
+        jPanel9Layout.setHorizontalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(btnParseSparqles, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnParseLODCloud, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnParseDatahub, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLodstats, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(txtLodstatsUrl, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtDatahubUrl, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
+                    .addComponent(txtSparqlesUrl, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        jPanel9Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLodstats, btnParseLODCloud, btnParseSparqles});
+
+        jPanel9Layout.setVerticalGroup(
+            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnParseSparqles)
+                    .addComponent(txtSparqlesUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnParseLODCloud)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnLodstats)
+                    .addComponent(txtLodstatsUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnParseDatahub)
+                    .addComponent(txtDatahubUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Monitoring & Analysis"));
+        jPanel10.setLayout(null);
 
         btnStatisticalAnalysis.setBackground(new java.awt.Color(0, 255, 0));
-        btnStatisticalAnalysis.setText("Start Statistical Analysis");
+        btnStatisticalAnalysis.setText("Statistical Analysis");
         btnStatisticalAnalysis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStatisticalAnalysisActionPerformed(evt);
             }
         });
-
-        txtNumOfThreadsStatisticalAnalysis.setText("1");
-
-        jLabel3.setText("#ofThreads");
+        jPanel10.add(btnStatisticalAnalysis);
+        btnStatisticalAnalysis.setBounds(10, 60, 175, 29);
 
         jLabel4.setText("#ofThreads");
+        jPanel10.add(jLabel4);
+        jLabel4.setBounds(190, 25, 82, 17);
 
-        txtNumOfThreadsStatusMonitoring.setText("1");
-
-        jLabel5.setText("| Timeout");
-
-        txtStatisticalAnalysisTimeout.setText("120");
-
-        jLabel6.setText("Seconds");
-
-        jLabel7.setText("| Check Every");
-
-        txtStatisticalAnalysisCheckEveryHours.setText("6");
-
-        jLabel8.setText("Hours");
-
-        jButtonGetSparqlEndpointWebPages.setText("Get Sparql Endpoint WebPages");
-        jButtonGetSparqlEndpointWebPages.addActionListener(new java.awt.event.ActionListener() {
+        btnStatusMonitor.setBackground(new java.awt.Color(0, 255, 0));
+        btnStatusMonitor.setText("Status Monitoring");
+        btnStatusMonitor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGetSparqlEndpointWebPagesActionPerformed(evt);
+                btnStatusMonitorActionPerformed(evt);
             }
         });
+        jPanel10.add(btnStatusMonitor);
+        btnStatusMonitor.setBounds(10, 20, 175, 29);
+
+        jLabel7.setText("Check Every");
+        jPanel10.add(jLabel7);
+        jLabel7.setBounds(190, 95, 85, 17);
+
+        jLabel8.setText("Hours");
+        jPanel10.add(jLabel8);
+        jLabel8.setBounds(310, 95, 42, 17);
+
+        txtNumOfThreadsStatisticalAnalysis.setText("1");
+        jPanel10.add(txtNumOfThreadsStatisticalAnalysis);
+        txtNumOfThreadsStatisticalAnalysis.setBounds(280, 60, 26, 27);
+
+        jLabel3.setText("#ofThreads");
+        jPanel10.add(jLabel3);
+        jLabel3.setBounds(190, 65, 82, 17);
+
+        jLabel5.setText("| Timeout");
+        jPanel10.add(jLabel5);
+        jLabel5.setBounds(310, 65, 65, 17);
+
+        jLabel6.setText("Seconds");
+        jPanel10.add(jLabel6);
+        jLabel6.setBounds(430, 65, 59, 17);
+
+        txtNumOfThreadsStatusMonitoring.setText("1");
+        jPanel10.add(txtNumOfThreadsStatusMonitoring);
+        txtNumOfThreadsStatusMonitoring.setBounds(280, 20, 26, 27);
+
+        txtStatisticalAnalysisTimeout.setText("120");
+        jPanel10.add(txtStatisticalAnalysisTimeout);
+        txtStatisticalAnalysisTimeout.setBounds(390, 60, 26, 27);
+
+        txtStatisticalAnalysisCheckEveryHours.setText("6");
+        jPanel10.add(txtStatisticalAnalysisCheckEveryHours);
+        txtStatisticalAnalysisCheckEveryHours.setBounds(280, 90, 26, 27);
+
+        label1.setBackground(new java.awt.Color(1, 1, 1));
+        label1.setText("label1");
+        jPanel10.add(label1);
+        label1.setBounds(10, 55, 480, 1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonGetSparqlEndpointWebPages, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStatisticalAnalysis, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnParseSparqles, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnParseLODCloud, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnLodstats, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnParseSemanticDiscovery, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnStatusMonitor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnParseDatahub, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(txtDatahubUrl, javax.swing.GroupLayout.DEFAULT_SIZE, 357, Short.MAX_VALUE)
-                        .addComponent(txtLodstatsUrl)
-                        .addComponent(jTextField1)
-                        .addComponent(txtSparqlesUrl))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumOfThreadsStatisticalAnalysis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStatisticalAnalysisTimeout, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtStatisticalAnalysisCheckEveryHours, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNumOfThreadsStatusMonitoring, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonAnalyzeEndpointHtml, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonPostFilterUrls, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(9, 9, 9))
         );
-
-        jPanel1Layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnLodstats, btnParseLODCloud, btnParseSemanticDiscovery, btnParseSparqles, btnStatusMonitor});
-
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnParseSparqles)
-                    .addComponent(txtSparqlesUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnParseLODCloud)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButtonAnalyzeEndpointHtml)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLodstats)
-                    .addComponent(txtLodstatsUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnParseDatahub)
-                    .addComponent(txtDatahubUrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
-                .addComponent(btnParseSemanticDiscovery)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStatusMonitor)
-                    .addComponent(jLabel4)
-                    .addComponent(txtNumOfThreadsStatusMonitoring, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnStatisticalAnalysis)
-                    .addComponent(txtNumOfThreadsStatisticalAnalysis, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(txtStatisticalAnalysisTimeout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(txtStatisticalAnalysisCheckEveryHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonGetSparqlEndpointWebPages)
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addComponent(jButtonPostFilterUrls)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Projects", jPanel1);
+        jPanel9.getAccessibleContext().setAccessibleName("Collect Other Projects");
+
+        jTabbedPane1.addTab("Analysis", jPanel1);
 
         jTextField2.setText("jTextField2");
 
@@ -2299,6 +1210,20 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             }
         });
 
+        btnParseSemanticDiscovery.setText("Parse SpEnD");
+        btnParseSemanticDiscovery.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnParseSemanticDiscoveryActionPerformed(evt);
+            }
+        });
+
+        jButtonGetSparqlEndpointWebPages.setText("Get Sparql Endpoint WebPages");
+        jButtonGetSparqlEndpointWebPages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGetSparqlEndpointWebPagesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -2309,8 +1234,11 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4)
+                            .addComponent(btnParseSemanticDiscovery, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonGetSparqlEndpointWebPages, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(220, 220, 220))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2319,8 +1247,13 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnParseSemanticDiscovery)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButtonGetSparqlEndpointWebPages)))
+                .addGap(0, 159, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Federation", jPanel3);
@@ -2625,7 +1558,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnIoTCollectResults)
-                .addContainerGap(571, Short.MAX_VALUE))
+                .addContainerGap(538, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2636,6 +1569,94 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         );
 
         jTabbedPane1.addTab("IoT Crawler", jPanel5);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        panel1.setName("test"); // NOI18N
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jPanel8.setBorder(javax.swing.BorderFactory.createTitledBorder("Test"));
+        jPanel8.setToolTipText("ttt");
+        jPanel8.setName("test"); // NOI18N
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        button1.setLabel("button1");
+        button1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(43, 43, 43)
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(102, 102, 102)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(158, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("tab6", jPanel6);
 
         jMenu2.setText("File");
 
@@ -2688,10 +1709,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 637, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 604, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2765,6 +1786,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         }
         return 0;
     }
+
     /*
      private String clickButton(Object tempsubmit) {
      HtmlSubmitInput htmlsubmit;
@@ -2785,7 +1807,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
      }
      */
-    /*
+ /*
      private HtmlPage clickButtonReturnPage(Object tempsubmit) throws IOException {
      HtmlSubmitInput htmlsubmit;
      HtmlButton htmlbutton;
@@ -2802,7 +1824,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
      }
      */
-    /*
+ /*
      private HtmlPage clickSearchButtonMainPage(final WebClient webClient, SearchEngine se) {
 
      String url = se.getBaseUrl();
@@ -2845,7 +1867,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
      }
      */
 
-    /*
+ /*
      private void searchGoogle() {
      try {
      //String url = "https://www.google.com.tr";
@@ -2898,7 +1920,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
      }
      }
      */
-    /*
+ /*
      private String getNextUrlYahoo(String htmltext) {
      int nexturlstartindex = htmltext.indexOf("id=\"pg-next\" href=") + 19;
      int urlendindex = htmltext.indexOf('"', nexturlstartindex + 20);
@@ -3032,7 +2054,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
      }
      }
      */
-    /*
+ /*
      private boolean isExcluded(String url, String searchEngineName) {
      String excludeString = getSearchEngineFromName(searchEngineName).getExcludedWords();
      boolean excludeMatch = false;
@@ -3207,207 +2229,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         }// TODO add your handling code here:
     }//GEN-LAST:event_btnStatusMonitorActionPerformed
 
-    private void btnLodstatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLodstatsActionPerformed
-
-        try {
-            final WebClient webClient = new WebClient();//BrowserVersion.FIREFOX_24);
-            for (int i = 1; i < 22; i++) {
-                HtmlPage page = webClient.getPage(txtLodstatsUrl.getText() + "/rdfdocs?page=" + i);
-                DocumentBuilderFactory dbf
-                        = DocumentBuilderFactory.newInstance();
-                DocumentBuilder db = dbf.newDocumentBuilder();
-                InputSource is = new InputSource();
-                is.setCharacterStream(new StringReader(page.asXml()));
-                Document doc = db.parse(is);
-
-                NodeList nodeList = doc.getElementsByTagName("tr");
-                String datasetName;
-                String url;
-                String format;
-                String rowFormat;
-                for (int j = 0; j < nodeList.getLength(); j++) {
-                    Node node = nodeList.item(j);
-                    try {
-                        NodeList tdNodeList = node.getChildNodes();
-                        url = tdNodeList.item(1).getChildNodes().item(1).getAttributes().getNamedItem("href").getNodeValue().trim();
-                        datasetName = tdNodeList.item(1).getChildNodes().item(1).getTextContent().trim();
-                        format = tdNodeList.item(7).getTextContent().trim();
-                        if (format.equals("sparql")) {
-                            HtmlPage page2 = webClient.getPage(txtLodstatsUrl.getText() + url);
-                            File f = new File("datasets/lodstats/stats.lod2.eu" + url + "-" + (new java.util.Date(System.nanoTime())).toString().replaceAll(" ", "").replaceAll(":", "") + ".html");
-                            f.getParentFile().mkdirs();
-                            f.createNewFile();
-                            FileUtils.writeStringToFile(f, page2.getWebResponse().getContentAsString());
-
-                            DocumentBuilderFactory dbf2
-                                    = DocumentBuilderFactory.newInstance();
-                            DocumentBuilder db2 = dbf.newDocumentBuilder();
-                            InputSource is2 = new InputSource();
-                            is2.setCharacterStream(new StringReader(page2.asXml()));
-                            Document doc2 = db.parse(is2);
-
-                            NodeList liNodeList = doc2.getElementsByTagName("div");
-                            for (int k = 0; k < nodeList.getLength(); k++) {
-                                try {
-                                    if (liNodeList.item(k).getAttributes().getNamedItem("class").getTextContent().equals("content")) {
-                                        String endpointurl = liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim();
-                                        if (endpointurl.endsWith("/")) {
-                                            endpointurl = endpointurl.substring(0, endpointurl.length() - 1);
-                                        }
-
-                                        String SQL = "SELECT * FROM endpoints where endpointUrl='" + endpointurl + "' and source='lodstats'";
-                                        Statement stmt = con.createStatement();
-                                        ResultSet rs = stmt.executeQuery(SQL);
-                                        if (!rs.next()) {
-
-                                            String SQLi = "INSERT INTO endpoints (datasetName,endpointUrl,source) VALUES (?,?,?);";
-                                            PreparedStatement pstmt
-                                                    = con.prepareStatement(SQLi);
-                                            pstmt.setString(1, datasetName);
-                                            pstmt.setString(2, endpointurl);
-                                            pstmt.setString(3, "lodstats");
-                                            //Statement stmt = con.createStatement();
-                                            pstmt.executeUpdate();
-                                            pstmt.close();
-
-                                        }
-                                        rs.close();
-                                        stmt.close();
-                                        System.out.println(liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim());
-                                    }
-                                } catch (Exception ex) {
-
-                                }
-                                // .getChildNodes().item(1).getTextContent();
-                            }
-                        }
-                        //System.out.println(format + " " + datasetName + " " + url);
-                    } catch (Exception ex) {
-                        System.out.println(ex.toString());
-                    }
-                    if (node.getNodeType() == Node.ELEMENT_NODE) {
-                        // do something with the current element
-                        //                 System.out.println(node.getNodeName());
-                    }
-                }
-                //    recursiveXmlParse(doc, i, isStarted);
-            }
-        } catch (Exception ex) {
-
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnLodstatsActionPerformed
-
-    private void btnParseLODCloudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseLODCloudActionPerformed
-        try {
-            final String query
-                    = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
-                    + "prefix void: <http://rdfs.org/ns/void#>\n"
-                    + "prefix dcterms: <http://purl.org/dc/terms/>\n"
-                    + "prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n"
-                    + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
-                    + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
-                    + "prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
-                    + "prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>\n"
-                    + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
-                    + "\n"
-                    + "select ?subject ?dataset ?title ?sparqlEndpoint where {\n"
-                    + "  ?dataset a void:Dataset ;\n"
-                    + "             void:sparqlEndpoint ?sparqlEndpoint ;"
-                    //   + "             tag:taggedWithTag ?tags ;"
-                    + "             dcterms:subject ?subject ;"
-                    + "             dcterms:title ?title.\n"
-                    + "}";
-            //                    + "  ?void:Dataset a dcterms:title ?title ;\n"
-            //                    + "             void:sparqlEndpoint ?sparqlEndpoint.\n"
-            //                    + "}";
-
-            Model model = ModelFactory.createDefaultModel();
-            try (final InputStream in = new FileInputStream("datasets/LODCLOUDvoid.ttl");) {
-                model.read(in, null, "TTL");
-            }
-
-            final QueryExecution exec = QueryExecutionFactory.create(query, model);
-            final com.hp.hpl.jena.query.ResultSet rs = (com.hp.hpl.jena.query.ResultSet) exec.execSelect();
-            while (rs.hasNext()) {
-                final QuerySolution qs = rs.next();
-
-                SparqlEndpoint.insertNewEndpoint(qs.get("title").toString(), qs.get("sparqlEndpoint").toString(), "lodcloud", 0);//qs.get("triples").asLiteral().getInt());
-                System.out.println("Dataset:" + qs.get("dataset")
-                        + "\n\tTitle: " + qs.get("title")
-                        // + "\n\tTriples" + qs.get("triples")
-                        + "\n\t Sparql Endpoint: " + qs.get("sparqlEndpoint")
-                        //+ "\n\t Tags " + qs.get("tags")
-                        + "\n\t Subject: " + qs.get("subject"));
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnParseLODCloudActionPerformed
-
-    private void btnParseSparqlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseSparqlesActionPerformed
-        final WebClient webClient = new WebClient();
-        try {
-            URL url;
-            HttpURLConnection connection = null;
-            //Create connection
-            url = new URL(txtSparqlesUrl.getText());
-            connection = (HttpURLConnection) url.openConnection();
-
-            //Get Response
-            InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-            String line;
-            StringBuffer response = new StringBuffer();
-            //       PrintWriter out = new PrintWriter("sparqles" + (new java.util.Date(System.nanoTime())).toString() + ".txt",);
-
-            while ((line = rd.readLine()) != null) {
-                response.append(line);
-
-                //    response.append('\r');
-            }
-            File f = new File("datasets/sparqles" + (new java.util.Date(System.nanoTime())).toString().replaceAll(" ", "").replaceAll(":", "") + ".txt");
-            f.createNewFile();
-            f.getParentFile().mkdirs();
-            FileUtils.writeStringToFile(f, response.toString());
-
-            rd.close();
-            String[] s = response.toString().replace(((char) 13), ' ').replace((char) 10, ' ').split("  ]   }, ");
-            //    response.toString().replace((char)13, ' ').replace(char) 10, ' ').split("  ]  },");
-            //            HtmlPage page1 = webClient.getPage("http://sparqles.okfn.org/api/endpoint/list");
-            //            String content = page1.getWebResponse().getContentAsString();
-            //            String[] s = content.split("},");
-            for (int i = 0; i < s.length; i++) {
-                int sparqluristart = s[i].indexOf("uri") + 7;
-                int dataseturistart = s[i].indexOf("uri", sparqluristart + 6) + 7;
-                int labelstart = s[i].indexOf("label") + 8;
-                String sparqlurl = "";
-                String datasetUrl = "";
-                String label = "";
-
-                try {
-                    sparqlurl = s[i].substring(sparqluristart, s[i].indexOf(",", sparqluristart) - 1).replace('"', ' ').trim();
-                } catch (Exception ex) {
-                }
-                try {
-                    datasetUrl = s[i].substring(dataseturistart, s[i].indexOf(",", dataseturistart) - 1).replace('"', ' ').trim();
-                } catch (Exception ex) {
-                }
-                try {
-                    label = s[i].substring(labelstart, s[i].indexOf("}", labelstart)).replace('"', ' ').trim();
-                } catch (Exception ex) {
-                }
-                SparqlEndpoint.insertNewEndpoint(label, sparqlurl, "sparqles", 0);
-                System.out.println(sparqlurl + datasetUrl + label);
-            }
-            String a = s[1];
-            //               baseUrl = page1.getUrl().toString();
-        } catch (Exception ex2) {
-            String aaa = "deneme";
-        }        // TODO add your handling code here:
-    }//GEN-LAST:event_btnParseSparqlesActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         for (int i = 0; i < 20; i++) {
             WorkerSparql sworker = new WorkerSparql(this, connectionUrl);
@@ -3581,146 +2402,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         isStarted = !isStarted;
     }//GEN-LAST:event_btnStartRemoteQueriesActionPerformed
 
-    private void btnCreateSearchQueueFromPreviousUrlsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrlsActionPerformed
-        try {
-            String SQLurl = "SELECT url FROM distinct_all_urls";
-            Statement stmturl = con1.createStatement();
-            ResultSet rsurl = stmturl.executeQuery(SQLurl);
-            HashSet<String> previousQueries = new HashSet<String>();
-            while (rsurl.next()) {
-
-                try {
-                    URL u = new URL(rsurl.getString("url"));
-                    String host = u.getHost();
-                    if (InternetDomainName.isValid(host)) {
-                        host = InternetDomainName.from(host).topPrivateDomain().toString();
-                    } else {
-                        if (com.google.common.net.HostSpecifier.isValid(host)) {
-                            host = com.google.common.net.HostSpecifier.from(host).toString();
-                        } else {
-                            host = "";
-                        }
-                    }
-                    String query = txtSearchTexts.getText().split("\\n")[0] + " site:" + host;
-                    if (!previousQueries.contains(query) && !host.equals("")) {
-                        previousQueries.add(query);
-                        //System.out.println(host);
-                        //  System.out.println(query);
-                        int maxSearchPage = Integer.valueOf(txtMaxPage.getText());
-                        if (!isQueryExistInQueryQueue(query)) {
-                            try {
-                                //   System.out.println(host);
-                                for (Object searchEngineName : lstSearchEngines.getSelectedValuesList()) {
-
-                                    //                                    String url = rsurl.getString(1);
-                                    //                                    String SQLi = "INSERT INTO searchqueue (searchText,searchEngineName, maxSearchPage,disabled) VALUES (?,?,?,0)";
-                                    //                                    PreparedStatement pstmt = con2.prepareStatement(SQLi);
-                                    //                                    pstmt.setString(1, query);
-                                    //                                    pstmt.setString(2, searchEngineName.toString());
-                                    //                                    pstmt.setInt(3, maxSearchPage);
-                                    //                                    pstmt.executeUpdate();
-                                    //                                    pstmt.close();
-                                }
-                            } catch (Exception ex) {
-                                //   System.out.println(ex.getMessage());
-                            }
-                        }
-                    }
-                } catch (Exception ex) {
-                    //System.out.println(ex.getMessage());
-                }
-            }
-            stmturl.close();
-            rsurl.close();
-
-            // return id + 1;
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrlsActionPerformed
-
-    private void btnStopAnalyzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzerActionPerformed
-
-        btnStopAnalyzer.setBackground(Color.RED);
-        for (Thread t : threadsAnalysis) {
-            ((WorkerAnalyze) t).stopRunning();
-        }// TODO add your handling code here:
-    }//GEN-LAST:event_btnStopAnalyzerActionPerformed
-
-    private void btnStopSearchQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueueActionPerformed
-        btnStopSearchQueue.setBackground(Color.RED);
-
-        for (Thread t : threadsSearchQueue) {
-            try {
-                ((WorkerSearchQueue) t).stopRunning();
-            } catch (Exception ex) {
-            }
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopSearchQueueActionPerformed
-
-    private void btnStopThreadsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreadsActionPerformed
-
-        for (Thread t : threadsSparql) {
-            ((WorkerSparql) t).stopRunning();
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopThreadsActionPerformed
-
-    private void btnCreateSearchQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueActionPerformed
-
-        createSearchQueue();
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueActionPerformed
-
-    private void btnRunMultitextSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearchActionPerformed
-
-        btnStopSearchQueue4.setBackground(Color.GREEN);
-        int crawlId = createCrawl(getQueryText(), "SearchEngineCrawler");
-        maxPage = Integer.decode(txtMaxPage4.getText());
-
-        threadArray = new Thread[maxPage];
-
-        List selist = lstSearchEngines4.getSelectedValuesList();
-
-        jProgressBar1.setMaximum(maxPage * selist.size());
-
-        int i = 0;
-        for (Object se : selist) {
-            WorkerSearchQueue sworker = new WorkerSearchQueue(this, se.toString(), crawlId, connectionUrl);
-            sworker.setName("Worker " + se.toString());
-            //threadArray[i++] = sworker;
-            threadsSearchQueue[i++] = sworker;
-            sworker.start();
-            try {
-
-                Thread.sleep(300);
-            } catch (Exception ex) {
-            }//  search(getSearchEngineFromName((String) se));
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunMultitextSearchActionPerformed
-
-    private void btnRunAnalyzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzerActionPerformed
-
-        btnStopAnalyzer.setBackground(Color.GREEN);
-        for (int i = 0; i < maxThreadAnalysis; i++) {
-            WorkerAnalyze sworker = new WorkerAnalyze(this, connectionUrl, i, maxThreadAnalysis);
-            sworker.setName("Worker Endpoint Analyzer " + String.valueOf(i));
-            threadsAnalysis[i] = sworker;
-            //threadArray[i++] = sworker;
-            sworker.start();
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunAnalyzerActionPerformed
-
-    private void txtMaxPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPageActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaxPageActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
 
         boolean open = false;
@@ -3814,56 +2495,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItemSaveTaskActionPerformed
-
-    private void btnParseDatahubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseDatahubActionPerformed
-
-        try {
-            URL url;
-            HttpURLConnection connection = null;
-            //Create connection
-            url = new URL(txtDatahubUrl.getText());
-            connection = (HttpURLConnection) url.openConnection();
-
-            //Get Response
-            InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-            String line;
-            StringBuffer response = new StringBuffer();
-            //       PrintWriter out = new PrintWriter("sparqles" + (new java.util.Date(System.nanoTime())).toString() + ".txt",);
-
-            final WebClient webClient = new WebClient();
-            String pageresp = webClient.getPage(txtDatahubUrl.getText()).getWebResponse().getContentAsString();
-            //  txtSeeds.setText(pageresp);
-            //  String pageresp = page1.getWebResponse().getContentAsString();
-//            while ((line = rd.readLine()) != null) {
-//                response.append(line);
-//
-//                //    response.append('\r');
-//            }
-
-            JSONObject obj = new JSONObject(pageresp);
-//            if (!obj.getString("status").equals("OK")) {
-//                return;
-//            }
-
-            JSONArray arr = ((JSONObject) obj.get("result")).getJSONArray("results");
-
-            for (int i = 0; i < arr.length(); i++) {
-                if (arr.getJSONObject(i).get("format").toString().equals("sparql") || arr.getJSONObject(i).get("format").toString().equals("api/sparql")) {
-                    SparqlEndpoint.insertNewEndpoint("", arr.getJSONObject(i).get("url").toString(), "datahub.io", 0);//qs.get("triples").asLiteral().getInt());
-
-//                    txtSeeds.append(arr.getJSONObject(i).get("format").toString());
-//                    txtSeeds.append(":");
-//                    txtSeeds.append(arr.getJSONObject(i).get("url").toString());
-//                    txtSeeds.append("\n");
-                }
-            }
-            // get the first result
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-    }//GEN-LAST:event_btnParseDatahubActionPerformed
 
     private void btnStatisticalAnalysisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatisticalAnalysisActionPerformed
 
@@ -4313,12 +2944,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                             host = u.getHost();
                             if (InternetDomainName.isValid(host)) {
                                 host = InternetDomainName.from(host).topPrivateDomain().toString();
+                            } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                                host = com.google.common.net.HostSpecifier.from(host).toString();
                             } else {
-                                if (com.google.common.net.HostSpecifier.isValid(host)) {
-                                    host = com.google.common.net.HostSpecifier.from(host).toString();
-                                } else {
-                                    host = "";
-                                }
+                                host = "";
                             }
                         } catch (Exception ex) {
                         }
@@ -4806,12 +3435,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 String host = u.getHost();
                 if (InternetDomainName.isValid(host)) {
                     host = InternetDomainName.from(host).topPrivateDomain().toString();
+                } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                    host = com.google.common.net.HostSpecifier.from(host).toString();
                 } else {
-                    if (com.google.common.net.HostSpecifier.isValid(host)) {
-                        host = com.google.common.net.HostSpecifier.from(host).toString();
-                    } else {
-                        host = "";
-                    }
+                    host = "";
                 }
                 PreparedStatement updatepstmt
                         = con.prepareStatement("update endpoints set domain = ? where id = ?");
@@ -6369,12 +4996,10 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     host = u.getHost();
                     if (InternetDomainName.isValid(host)) {
                         host = InternetDomainName.from(host).topPrivateDomain().toString();
+                    } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                        host = com.google.common.net.HostSpecifier.from(host).toString();
                     } else {
-                        if (com.google.common.net.HostSpecifier.isValid(host)) {
-                            host = com.google.common.net.HostSpecifier.from(host).toString();
-                        } else {
-                            host = "";
-                        }
+                        host = "";
                     }
                 } catch (Exception ex) {
 
@@ -6447,102 +5072,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonGetSparqlEndpointWebPagesActionPerformed
 
-    private void txtMaxPage1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPage1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaxPage1ActionPerformed
-
-    private void btnRunAnalyzer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzer1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunAnalyzer1ActionPerformed
-
-    private void btnRunMultitextSearch1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearch1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunMultitextSearch1ActionPerformed
-
-    private void btnCreateSearchQueue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueue1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueue1ActionPerformed
-
-    private void btnStopThreads1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreads1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopThreads1ActionPerformed
-
-    private void btnStopSearchQueue1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueue1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopSearchQueue1ActionPerformed
-
-    private void btnStopAnalyzer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzer1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopAnalyzer1ActionPerformed
-
-    private void btnCreateSearchQueueFromPreviousUrls1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrls1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrls1ActionPerformed
-
-    private void txtMaxPage2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPage2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaxPage2ActionPerformed
-
-    private void btnRunAnalyzer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzer2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunAnalyzer2ActionPerformed
-
-    private void btnRunMultitextSearch2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearch2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunMultitextSearch2ActionPerformed
-
-    private void btnCreateSearchQueue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueue2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueue2ActionPerformed
-
-    private void btnStopThreads2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreads2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopThreads2ActionPerformed
-
-    private void btnStopSearchQueue2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueue2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopSearchQueue2ActionPerformed
-
-    private void btnStopAnalyzer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzer2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopAnalyzer2ActionPerformed
-
-    private void btnCreateSearchQueueFromPreviousUrls2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrls2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrls2ActionPerformed
-
-    private void txtMaxPage3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPage3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaxPage3ActionPerformed
-
-    private void btnRunAnalyzer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzer3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunAnalyzer3ActionPerformed
-
-    private void btnRunMultitextSearch3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearch3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunMultitextSearch3ActionPerformed
-
-    private void btnCreateSearchQueue3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueue3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueue3ActionPerformed
-
-    private void btnStopThreads3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreads3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopThreads3ActionPerformed
-
-    private void btnStopSearchQueue3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueue3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopSearchQueue3ActionPerformed
-
-    private void btnStopAnalyzer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzer3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopAnalyzer3ActionPerformed
-
-    private void btnCreateSearchQueueFromPreviousUrls3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrls3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrls3ActionPerformed
-
     private void jButtontfidftop20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtontfidftop20ActionPerformed
 
         exportSTFSIDFScoreTop20TfIdf("comment", "wordnet_hypernym");
@@ -6566,38 +5095,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         wordNetAnalyzerLevel("label", "wordnet_topic", true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButtonWordnetlevelActionPerformed
 
-    private void btnCreateSearchQueueFromPreviousUrls5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrls5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrls5ActionPerformed
-
-    private void btnStopAnalyzer5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzer5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopAnalyzer5ActionPerformed
-
-    private void btnStopSearchQueue5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueue5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopSearchQueue5ActionPerformed
-
-    private void btnStopThreads5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreads5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopThreads5ActionPerformed
-
-    private void btnCreateSearchQueue5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueue5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueue5ActionPerformed
-
-    private void btnRunMultitextSearch5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearch5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunMultitextSearch5ActionPerformed
-
-    private void btnRunAnalyzer5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzer5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunAnalyzer5ActionPerformed
-
-    private void txtMaxPage5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPage5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaxPage5ActionPerformed
-
     private void jButtonAnalyzeEndpointHtmlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAnalyzeEndpointHtmlActionPerformed
         updateEndpointsFromRawTable();
         updateDomainsOfEndpoints();
@@ -6605,141 +5102,6 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         calculateEndpointWordsTF(); // TODO add your handling code here:
         calculateEndpointTagsTF(); // TODO add your handling code here:
     }//GEN-LAST:event_jButtonAnalyzeEndpointHtmlActionPerformed
-
-    private void btnCreateSearchQueueFromPreviousUrls4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrls4ActionPerformed
-        try {
-            String SQLurl = "SELECT url FROM distinct_all_urls";
-            Statement stmturl = con1.createStatement();
-            ResultSet rsurl = stmturl.executeQuery(SQLurl);
-            HashSet<String> previousQueries = new HashSet<String>();
-            while (rsurl.next()) {
-
-                try {
-                    URL u = new URL(rsurl.getString("url"));
-                    String host = u.getHost();
-                    if (InternetDomainName.isValid(host)) {
-                        host = InternetDomainName.from(host).topPrivateDomain().toString();
-                    } else {
-                        if (com.google.common.net.HostSpecifier.isValid(host)) {
-                            host = com.google.common.net.HostSpecifier.from(host).toString();
-                        } else {
-                            host = "";
-                        }
-                    }
-                    String query = txtSearchTexts4.getText().split("\\n")[0] + " site:" + host;
-                    if (!previousQueries.contains(query) && !host.equals("")) {
-                        previousQueries.add(query);
-                        //System.out.println(host);
-                        //  System.out.println(query);
-                        int maxSearchPage = Integer.valueOf(txtMaxPage4.getText());
-                        if (!isQueryExistInQueryQueue(query)) {
-                            try {
-                                //   System.out.println(host);
-                                for (Object searchEngineName : lstSearchEngines4.getSelectedValuesList()) {
-
-                                    //                                    String url = rsurl.getString(1);
-                                    //                                    String SQLi = "INSERT INTO searchqueue (searchText,searchEngineName, maxSearchPage,disabled) VALUES (?,?,?,0)";
-                                    //                                    PreparedStatement pstmt = con2.prepareStatement(SQLi);
-                                    //                                    pstmt.setString(1, query);
-                                    //                                    pstmt.setString(2, searchEngineName.toString());
-                                    //                                    pstmt.setInt(3, maxSearchPage);
-                                    //                                    pstmt.executeUpdate();
-                                    //                                    pstmt.close();
-                                }
-                            } catch (Exception ex) {
-                                //   System.out.println(ex.getMessage());
-                            }
-                        }
-                    }
-                } catch (Exception ex) {
-                    //System.out.println(ex.getMessage());
-                }
-            }
-            stmturl.close();
-            rsurl.close();
-
-            // return id + 1;
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrls4ActionPerformed
-
-    private void btnStopAnalyzer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzer4ActionPerformed
-        // TODO add your handling code here:
-
-        btnStopAnalyzer4.setBackground(Color.RED);
-        for (Thread t : threadsAnalysis) {
-            ((WorkerAnalyze) t).stopRunning();
-        }// TODO add your handling code here:
-    }//GEN-LAST:event_btnStopAnalyzer4ActionPerformed
-
-    private void btnStopSearchQueue4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueue4ActionPerformed
-        // TODO add your handling code here:
-        btnStopSearchQueue4.setBackground(Color.RED);
-
-        for (Thread t : threadsSearchQueue) {
-            try {
-                ((WorkerSearchQueue) t).stopRunning();
-            } catch (Exception ex) {
-            }
-        }
-    }//GEN-LAST:event_btnStopSearchQueue4ActionPerformed
-
-    private void btnStopThreads4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreads4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnStopThreads4ActionPerformed
-
-    private void btnCreateSearchQueue4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueue4ActionPerformed
-
-        createSearchQueue();
-    }//GEN-LAST:event_btnCreateSearchQueue4ActionPerformed
-
-    private void btnRunMultitextSearch4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearch4ActionPerformed
-
-        btnStopSearchQueue4.setBackground(Color.GREEN);
-        int crawlId = createCrawl(getQueryText(), "SearchEngineCrawler");
-        maxPage = Integer.decode(txtMaxPage4.getText());
-
-        threadArray = new Thread[maxPage];
-
-        List selist = lstSearchEngines4.getSelectedValuesList();
-
-        jProgressBar1.setMaximum(maxPage * selist.size());
-
-        int i = 0;
-        for (Object se : selist) {
-            WorkerSearchQueue sworker = new WorkerSearchQueue(this, se.toString(), crawlId, connectionUrl);
-            sworker.setName("Worker " + se.toString());
-            //threadArray[i++] = sworker;
-            threadsSearchQueue[i++] = sworker;
-            sworker.start();
-            try {
-
-                Thread.sleep(300);
-            } catch (Exception ex) {
-            }//  search(getSearchEngineFromName((String) se));
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunMultitextSearch4ActionPerformed
-
-    private void btnRunAnalyzer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzer4ActionPerformed
-
-        btnStopAnalyzer4.setBackground(Color.GREEN);
-        for (int i = 0; i < maxThreadAnalysis; i++) {
-            WorkerAnalyze sworker = new WorkerAnalyze(this, connectionUrl, i, maxThreadAnalysis);
-            sworker.setName("Worker Endpoint Analyzer " + String.valueOf(i));
-            threadsAnalysis[i] = sworker;
-            //threadArray[i++] = sworker;
-            sworker.start();
-        }
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnRunAnalyzer4ActionPerformed
-
-    private void txtMaxPage4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPage4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMaxPage4ActionPerformed
 
     private void jButtonPostFilterUrlsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPostFilterUrlsActionPerformed
         try {
@@ -6750,29 +5112,29 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 int currentid = rsall.getInt("id");
                 String currentendpointUrl = rsall.getString("endpointUrl");
                 int currenttriples = rsall.getInt("triples");
-         
-                    int sameasid = 0;
-                    if (currenttriples != 0) {
-                        String SQL = "select id,endpointUrl,length(endpointUrl),triples from endpoints where triples=? order by length(endpointUrl) asc limit 1";
-                        PreparedStatement pstmt = con.prepareStatement(SQL);
-                        pstmt.setInt(1, currenttriples);
-                        ResultSet rs = pstmt.executeQuery();
-                        if (rs.next()) {
-                            sameasid = rs.getInt("id");
-                        }
-                        rs.close();
-                        pstmt.close();
+
+                int sameasid = 0;
+                if (currenttriples != 0) {
+                    String SQL = "select id,endpointUrl,length(endpointUrl),triples from endpoints where triples=? order by length(endpointUrl) asc limit 1";
+                    PreparedStatement pstmt = con.prepareStatement(SQL);
+                    pstmt.setInt(1, currenttriples);
+                    ResultSet rs = pstmt.executeQuery();
+                    if (rs.next()) {
+                        sameasid = rs.getInt("id");
                     }
-                    //  if (id != sameasid && sameasid != 0) {
-                    if (sameasid != 0) {
-                        String SQL = "UPDATE endpoints SET sameAs=? where id=" + currentid + ";";
-                        PreparedStatement pstmt = con.prepareStatement(SQL);
-                        pstmt.setInt(1, sameasid);
-                        pstmt.executeUpdate();
-                        pstmt.close();
-                    }
+                    rs.close();
+                    pstmt.close();
                 }
-            
+                //  if (id != sameasid && sameasid != 0) {
+                if (sameasid != 0) {
+                    String SQL = "UPDATE endpoints SET sameAs=? where id=" + currentid + ";";
+                    PreparedStatement pstmt = con.prepareStatement(SQL);
+                    pstmt.setInt(1, sameasid);
+                    pstmt.executeUpdate();
+                    pstmt.close();
+                }
+            }
+
         } catch (Exception ex) {
 
         }
@@ -6809,6 +5171,439 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
         // TODO add your handling code here:
         // TODO add your handling code here:
     }//GEN-LAST:event_btnIoTCollectResultsActionPerformed
+
+    private void btnCreateSearchQueueFromPreviousUrlsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueFromPreviousUrlsActionPerformed
+        try {
+            String SQLurl = "SELECT url FROM distinct_all_urls";
+            Statement stmturl = con1.createStatement();
+            ResultSet rsurl = stmturl.executeQuery(SQLurl);
+            HashSet<String> previousQueries = new HashSet<String>();
+            while (rsurl.next()) {
+
+                try {
+                    URL u = new URL(rsurl.getString("url"));
+                    String host = u.getHost();
+                    if (InternetDomainName.isValid(host)) {
+                        host = InternetDomainName.from(host).topPrivateDomain().toString();
+                    } else if (com.google.common.net.HostSpecifier.isValid(host)) {
+                        host = com.google.common.net.HostSpecifier.from(host).toString();
+                    } else {
+                        host = "";
+                    }
+                    String query = txtSearchTexts.getText().split("\\n")[0] + " site:" + host;
+                    if (!previousQueries.contains(query) && !host.equals("")) {
+                        previousQueries.add(query);
+                        //System.out.println(host);
+                        //  System.out.println(query);
+                        int maxSearchPage = Integer.valueOf(txtMaxPage.getText());
+                        if (!isQueryExistInQueryQueue(query)) {
+                            try {
+                                //   System.out.println(host);
+                                for (Object searchEngineName : lstSearchEngines.getSelectedValuesList()) {
+
+                                    //                                    String url = rsurl.getString(1);
+                                    //                                    String SQLi = "INSERT INTO searchqueue (searchText,searchEngineName, maxSearchPage,disabled) VALUES (?,?,?,0)";
+                                    //                                    PreparedStatement pstmt = con2.prepareStatement(SQLi);
+                                    //                                    pstmt.setString(1, query);
+                                    //                                    pstmt.setString(2, searchEngineName.toString());
+                                    //                                    pstmt.setInt(3, maxSearchPage);
+                                    //                                    pstmt.executeUpdate();
+                                    //                                    pstmt.close();
+                                }
+                            } catch (Exception ex) {
+                                //   System.out.println(ex.getMessage());
+                            }
+                        }
+                    }
+                } catch (Exception ex) {
+                    //System.out.println(ex.getMessage());
+                }
+            }
+            stmturl.close();
+            rsurl.close();
+
+            // return id + 1;
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCreateSearchQueueFromPreviousUrlsActionPerformed
+
+    private void btnStopAnalyzer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopAnalyzer4ActionPerformed
+        // TODO add your handling code here:
+
+        btnStopAnalyzer4.setBackground(Color.RED);
+        for (Thread t : threadsAnalysis) {
+            ((WorkerAnalyze) t).stopRunning();
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_btnStopAnalyzer4ActionPerformed
+
+    private void btnStopSearchQueue4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopSearchQueue4ActionPerformed
+        // TODO add your handling code here:
+        btnStopSearchQueue4.setBackground(Color.RED);
+
+        for (Thread t : threadsSearchQueue) {
+            try {
+                ((WorkerSearchQueue) t).stopRunning();
+            } catch (Exception ex) {
+            }
+        }
+    }//GEN-LAST:event_btnStopSearchQueue4ActionPerformed
+
+    private void btnStopThreads4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStopThreads4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnStopThreads4ActionPerformed
+
+    private void btnCreateSearchQueueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateSearchQueueActionPerformed
+
+        createSearchQueue();
+    }//GEN-LAST:event_btnCreateSearchQueueActionPerformed
+
+    private void btnRunMultitextSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunMultitextSearchActionPerformed
+
+        btnStopSearchQueue4.setBackground(Color.GREEN);
+        int crawlId = createCrawl(getQueryText(), "SearchEngineCrawler");
+        maxPage = Integer.decode(txtMaxPage.getText());
+
+        threadArray = new Thread[maxPage];
+
+        List selist = lstSearchEngines.getSelectedValuesList();
+
+        jProgressBar1.setMaximum(maxPage * selist.size());
+
+        int i = 0;
+        for (Object se : selist) {
+            WorkerSearchQueue sworker = new WorkerSearchQueue(this, se.toString(), crawlId, connectionUrl);
+            sworker.setName("Worker " + se.toString());
+            //threadArray[i++] = sworker;
+            threadsSearchQueue[i++] = sworker;
+            sworker.start();
+            try {
+
+                Thread.sleep(300);
+            } catch (Exception ex) {
+            }//  search(getSearchEngineFromName((String) se));
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRunMultitextSearchActionPerformed
+
+    private void btnRunAnalyzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRunAnalyzerActionPerformed
+
+        btnStopAnalyzer4.setBackground(Color.GREEN);
+        for (int i = 0; i < maxThreadAnalysis; i++) {
+            WorkerAnalyze sworker = new WorkerAnalyze(this, connectionUrl, i, maxThreadAnalysis);
+            sworker.setName("Worker Endpoint Analyzer " + String.valueOf(i));
+            threadsAnalysis[i] = sworker;
+            //threadArray[i++] = sworker;
+            sworker.start();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRunAnalyzerActionPerformed
+
+    private void txtMaxPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMaxPageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMaxPageActionPerformed
+
+    private void btnLodstatsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLodstatsActionPerformed
+
+        try {
+            final WebClient webClient = new WebClient();//BrowserVersion.FIREFOX_24);
+            for (int i = 1; i < 22; i++) {
+                HtmlPage page = webClient.getPage(txtLodstatsUrl.getText() + "/rdfdocs?page=" + i);
+                DocumentBuilderFactory dbf
+                        = DocumentBuilderFactory.newInstance();
+                DocumentBuilder db = dbf.newDocumentBuilder();
+                InputSource is = new InputSource();
+                is.setCharacterStream(new StringReader(page.asXml()));
+                Document doc = db.parse(is);
+
+                NodeList nodeList = doc.getElementsByTagName("tr");
+                String datasetName;
+                String url;
+                String format;
+                String rowFormat;
+                for (int j = 0; j < nodeList.getLength(); j++) {
+                    Node node = nodeList.item(j);
+                    try {
+                        NodeList tdNodeList = node.getChildNodes();
+                        url = tdNodeList.item(1).getChildNodes().item(1).getAttributes().getNamedItem("href").getNodeValue().trim();
+                        datasetName = tdNodeList.item(1).getChildNodes().item(1).getTextContent().trim();
+                        format = tdNodeList.item(7).getTextContent().trim();
+                        if (format.equals("sparql")) {
+                            HtmlPage page2 = webClient.getPage(txtLodstatsUrl.getText() + url);
+                            File f = new File("datasets/lodstats/stats.lod2.eu" + url + "-" + (new java.util.Date(System.nanoTime())).toString().replaceAll(" ", "").replaceAll(":", "") + ".html");
+                            f.getParentFile().mkdirs();
+                            f.createNewFile();
+                            FileUtils.writeStringToFile(f, page2.getWebResponse().getContentAsString());
+
+                            DocumentBuilderFactory dbf2
+                                    = DocumentBuilderFactory.newInstance();
+                            DocumentBuilder db2 = dbf.newDocumentBuilder();
+                            InputSource is2 = new InputSource();
+                            is2.setCharacterStream(new StringReader(page2.asXml()));
+                            Document doc2 = db.parse(is2);
+
+                            NodeList liNodeList = doc2.getElementsByTagName("div");
+                            for (int k = 0; k < nodeList.getLength(); k++) {
+                                try {
+                                    if (liNodeList.item(k).getAttributes().getNamedItem("class").getTextContent().equals("content")) {
+                                        String endpointurl = liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim();
+                                        if (endpointurl.endsWith("/")) {
+                                            endpointurl = endpointurl.substring(0, endpointurl.length() - 1);
+                                        }
+
+                                        String SQL = "SELECT * FROM endpoints where endpointUrl='" + endpointurl + "' and source='lodstats'";
+                                        Statement stmt = con.createStatement();
+                                        ResultSet rs = stmt.executeQuery(SQL);
+                                        if (!rs.next()) {
+
+                                            String SQLi = "INSERT INTO endpoints (datasetName,endpointUrl,source) VALUES (?,?,?);";
+                                            PreparedStatement pstmt
+                                                    = con.prepareStatement(SQLi);
+                                            pstmt.setString(1, datasetName);
+                                            pstmt.setString(2, endpointurl);
+                                            pstmt.setString(3, "lodstats");
+                                            //Statement stmt = con.createStatement();
+                                            pstmt.executeUpdate();
+                                            pstmt.close();
+
+                                        }
+                                        rs.close();
+                                        stmt.close();
+                                        System.out.println(liNodeList.item(k).getChildNodes().item(3).getChildNodes().item(1).getChildNodes().item(1).getTextContent().trim());
+                                    }
+                                } catch (Exception ex) {
+
+                                }
+                                // .getChildNodes().item(1).getTextContent();
+                            }
+                        }
+                        //System.out.println(format + " " + datasetName + " " + url);
+                    } catch (Exception ex) {
+                        System.out.println(ex.toString());
+                    }
+                    if (node.getNodeType() == Node.ELEMENT_NODE) {
+                        // do something with the current element
+                        //                 System.out.println(node.getNodeName());
+                    }
+                }
+                //    recursiveXmlParse(doc, i, isStarted);
+            }
+        } catch (Exception ex) {
+
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnLodstatsActionPerformed
+
+    private void btnParseLODCloudActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseLODCloudActionPerformed
+        try {
+            final String query
+                    = "prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n"
+                    + "prefix void: <http://rdfs.org/ns/void#>\n"
+                    + "prefix dcterms: <http://purl.org/dc/terms/>\n"
+                    + "prefix xsd: <http://www.w3.org/2001/XMLSchema#>\n"
+                    + "prefix foaf: <http://xmlns.com/foaf/0.1/>\n"
+                    + "prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>\n"
+                    + "prefix skos: <http://www.w3.org/2004/02/skos/core#>\n"
+                    + "prefix tag: <http://www.holygoat.co.uk/owl/redwood/0.1/tags/>\n"
+                    + "prefix owl: <http://www.w3.org/2002/07/owl#>\n"
+                    + "\n"
+                    + "select ?subject ?dataset ?title ?sparqlEndpoint where {\n"
+                    + "  ?dataset a void:Dataset ;\n"
+                    + "             void:sparqlEndpoint ?sparqlEndpoint ;"
+                    //   + "             tag:taggedWithTag ?tags ;"
+                    + "             dcterms:subject ?subject ;"
+                    + "             dcterms:title ?title.\n"
+                    + "}";
+            //                    + "  ?void:Dataset a dcterms:title ?title ;\n"
+            //                    + "             void:sparqlEndpoint ?sparqlEndpoint.\n"
+            //                    + "}";
+
+            Model model = ModelFactory.createDefaultModel();
+            try (final InputStream in = new FileInputStream("datasets/LODCLOUDvoid.ttl");) {
+                model.read(in, null, "TTL");
+            }
+
+            final QueryExecution exec = QueryExecutionFactory.create(query, model);
+            final com.hp.hpl.jena.query.ResultSet rs = (com.hp.hpl.jena.query.ResultSet) exec.execSelect();
+            while (rs.hasNext()) {
+                final QuerySolution qs = rs.next();
+
+                SparqlEndpoint.insertNewEndpoint(qs.get("title").toString(), qs.get("sparqlEndpoint").toString(), "lodcloud", 0);//qs.get("triples").asLiteral().getInt());
+                System.out.println("Dataset:" + qs.get("dataset")
+                        + "\n\tTitle: " + qs.get("title")
+                        // + "\n\tTriples" + qs.get("triples")
+                        + "\n\t Sparql Endpoint: " + qs.get("sparqlEndpoint")
+                        //+ "\n\t Tags " + qs.get("tags")
+                        + "\n\t Subject: " + qs.get("subject"));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnParseLODCloudActionPerformed
+
+    private void btnParseDatahubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseDatahubActionPerformed
+
+        try {
+            URL url;
+            HttpURLConnection connection = null;
+            //Create connection
+            url = new URL(txtDatahubUrl.getText());
+            connection = (HttpURLConnection) url.openConnection();
+
+            //Get Response
+            InputStream is = connection.getInputStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            String line;
+            StringBuffer response = new StringBuffer();
+            //       PrintWriter out = new PrintWriter("sparqles" + (new java.util.Date(System.nanoTime())).toString() + ".txt",);
+
+            final WebClient webClient = new WebClient();
+            String pageresp = webClient.getPage(txtDatahubUrl.getText()).getWebResponse().getContentAsString();
+            //  txtSeeds.setText(pageresp);
+            //  String pageresp = page1.getWebResponse().getContentAsString();
+            //            while ((line = rd.readLine()) != null) {
+            //                response.append(line);
+            //
+            //                //    response.append('\r');
+            //            }
+
+            JSONObject obj = new JSONObject(pageresp);
+            //            if (!obj.getString("status").equals("OK")) {
+            //                return;
+            //            }
+
+            JSONArray arr = ((JSONObject) obj.get("result")).getJSONArray("results");
+
+            for (int i = 0; i < arr.length(); i++) {
+                if (arr.getJSONObject(i).get("format").toString().equals("sparql") || arr.getJSONObject(i).get("format").toString().equals("api/sparql")) {
+                    SparqlEndpoint.insertNewEndpoint("", arr.getJSONObject(i).get("url").toString(), "datahub.io", 0);//qs.get("triples").asLiteral().getInt());
+
+                    //                    txtSeeds.append(arr.getJSONObject(i).get("format").toString());
+                    //                    txtSeeds.append(":");
+                    //                    txtSeeds.append(arr.getJSONObject(i).get("url").toString());
+                    //                    txtSeeds.append("\n");
+                }
+            }
+            // get the first result
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_btnParseDatahubActionPerformed
+
+    private void btnParseSparqlesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParseSparqlesActionPerformed
+        final WebClient webClient = new WebClient();
+        try {
+            URL url;
+            HttpURLConnection connection = null;
+            //Create connection
+            url = new URL(txtSparqlesUrl.getText());
+            connection = (HttpURLConnection) url.openConnection();
+
+            //Get Response
+            InputStream is = connection.getInputStream();
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+            String line;
+            StringBuffer response = new StringBuffer();
+            //       PrintWriter out = new PrintWriter("sparqles" + (new java.util.Date(System.nanoTime())).toString() + ".txt",);
+
+            while ((line = rd.readLine()) != null) {
+                response.append(line);
+
+                //    response.append('\r');
+            }
+            File f = new File("datasets/sparqles" + (new java.util.Date(System.nanoTime())).toString().replaceAll(" ", "").replaceAll(":", "") + ".txt");
+            f.createNewFile();
+            f.getParentFile().mkdirs();
+            FileUtils.writeStringToFile(f, response.toString());
+
+            rd.close();
+            String[] s = response.toString().replace(((char) 13), ' ').replace((char) 10, ' ').split("  ]   }, ");
+            //    response.toString().replace((char)13, ' ').replace(char) 10, ' ').split("  ]  },");
+            //            HtmlPage page1 = webClient.getPage("http://sparqles.okfn.org/api/endpoint/list");
+            //            String content = page1.getWebResponse().getContentAsString();
+            //            String[] s = content.split("},");
+            for (int i = 0; i < s.length; i++) {
+                int sparqluristart = s[i].indexOf("uri") + 7;
+                int dataseturistart = s[i].indexOf("uri", sparqluristart + 6) + 7;
+                int labelstart = s[i].indexOf("label") + 8;
+                String sparqlurl = "";
+                String datasetUrl = "";
+                String label = "";
+
+                try {
+                    sparqlurl = s[i].substring(sparqluristart, s[i].indexOf(",", sparqluristart) - 1).replace('"', ' ').trim();
+                } catch (Exception ex) {
+                }
+                try {
+                    datasetUrl = s[i].substring(dataseturistart, s[i].indexOf(",", dataseturistart) - 1).replace('"', ' ').trim();
+                } catch (Exception ex) {
+                }
+                try {
+                    label = s[i].substring(labelstart, s[i].indexOf("}", labelstart)).replace('"', ' ').trim();
+                } catch (Exception ex) {
+                }
+                SparqlEndpoint.insertNewEndpoint(label, sparqlurl, "sparqles", 0);
+                System.out.println(sparqlurl + datasetUrl + label);
+            }
+            String a = s[1];
+            //               baseUrl = page1.getUrl().toString();
+        } catch (Exception ex2) {
+            String aaa = "deneme";
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnParseSparqlesActionPerformed
+
+    private void button1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button1ActionPerformed
+
+        try {
+            PreparedStatement pstmt
+                    = con.prepareStatement("select id,endpointUrl from endpoints where advancedFilter is null;");
+
+            ResultSet rs = pstmt.executeQuery();;
+
+            // iterate through the java resultset
+            while (rs.next()) {
+                //int id = rs.getInt("id");
+                int id = rs.getInt("id");
+                String url = rs.getString("endpointUrl");
+                try {
+                    JenaSparql.queryTimeOut=5000;
+                    String s1 = JenaSparql.getSparqlXMLResult(url, "select * where {?s ?p ?o} LIMIT 5");
+                    String s2 = JenaSparql.getSparqlXMLResult(url, "select * where {?s ?p ?o} LIMIT 10");
+
+                    if (s1 == null) {
+                        String SQLi = "update endpoints set advancedFilter = 0 where id = ?;";
+                        PreparedStatement update = con2.prepareStatement(SQLi);
+                        update.setInt(1, id);
+                        update.executeUpdate();
+                        update.close();
+                    } else if (!s1.contentEquals(s2)) {
+                        String SQLi = "update endpoints set advancedFilter = 1 where id = ?;";
+                        PreparedStatement update = con2.prepareStatement(SQLi);
+                        update.setInt(1, id);
+                        update.executeUpdate();
+                        update.close();
+                    } else {
+                        String SQLi = "update endpoints set advancedFilter = 2 where id = ?;";
+                        PreparedStatement update = con2.prepareStatement(SQLi);
+                        update.setInt(1, id);
+                        update.executeUpdate();
+                        update.close();
+                    }
+                } catch (Exception ex) {
+                    System.out.println("in while:" + ex.getMessage());
+                }
+            }
+            rs.close();
+            pstmt.close();
+
+        } catch (Exception ex) {
+            System.out.println("out:" + ex.getMessage());
+        }       // TODO add your handling code here:
+    }//GEN-LAST:event_button1ActionPerformed
 
     public static List<String> extractUrls(String text) {
         List<String> containedUrls = new ArrayList<String>();
@@ -6911,7 +5706,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
                 Object[] row = {searchEngine, queryText, url, dateFormat.format(time)};
-                DefaultTableModel model = (DefaultTableModel) jTable6.getModel();
+                DefaultTableModel model = (DefaultTableModel) jTable.getModel();
                 //model.addRow();
                 model.insertRow(0, row);
 
@@ -6929,8 +5724,8 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private void createSearchQueue() {
         try {
 
-            String[] searchTexts = txtSearchTexts4.getText().split("\\n");
-            List selist = lstSearchEngines4.getSelectedValuesList();
+            String[] searchTexts = txtSearchTexts.getText().split("\\n");
+            List selist = lstSearchEngines.getSelectedValuesList();
             for (Object se : selist) {
                 for (String st : searchTexts) {
                     String SQLi = "INSERT INTO searchqueue (searchText,searchEngineName, disabled) VALUES (?,?,0)";
@@ -7062,7 +5857,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                     lblCount4.setText(String.valueOf(++totalUrlCount));
                     //txtSeeds.append(ev.getStr());
 
-                    DefaultTableModel model = (DefaultTableModel) jTable6.getModel();
+                    DefaultTableModel model = (DefaultTableModel) jTable.getModel();
                     //model.addRow();
                     model.insertRow(0, ev.getRowValues());
 
@@ -7089,17 +5884,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCreateSearchQueue;
-    private javax.swing.JButton btnCreateSearchQueue1;
-    private javax.swing.JButton btnCreateSearchQueue2;
-    private javax.swing.JButton btnCreateSearchQueue3;
-    private javax.swing.JButton btnCreateSearchQueue4;
-    private javax.swing.JButton btnCreateSearchQueue5;
     private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls;
-    private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls1;
-    private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls2;
-    private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls3;
-    private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls4;
-    private javax.swing.JButton btnCreateSearchQueueFromPreviousUrls5;
     private javax.swing.JButton btnIoTCollectResults;
     private javax.swing.JButton btnLodstats;
     private javax.swing.JButton btnParseDatahub;
@@ -7109,42 +5894,18 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JButton btnParseSparqles;
     private javax.swing.JButton btnPrepareQueryQueue;
     private javax.swing.JButton btnRunAnalyzer;
-    private javax.swing.JButton btnRunAnalyzer1;
-    private javax.swing.JButton btnRunAnalyzer2;
-    private javax.swing.JButton btnRunAnalyzer3;
-    private javax.swing.JButton btnRunAnalyzer4;
-    private javax.swing.JButton btnRunAnalyzer5;
     private javax.swing.JButton btnRunMultitextSearch;
-    private javax.swing.JButton btnRunMultitextSearch1;
-    private javax.swing.JButton btnRunMultitextSearch2;
-    private javax.swing.JButton btnRunMultitextSearch3;
-    private javax.swing.JButton btnRunMultitextSearch4;
-    private javax.swing.JButton btnRunMultitextSearch5;
     private javax.swing.JButton btnRunSeedGenerator;
     private javax.swing.JButton btnSameAs;
     private javax.swing.JButton btnStartRemoteQueries;
     private javax.swing.JButton btnStatisticalAnalysis;
     private javax.swing.JButton btnStatusMonitor;
-    private javax.swing.JButton btnStopAnalyzer;
-    private javax.swing.JButton btnStopAnalyzer1;
-    private javax.swing.JButton btnStopAnalyzer2;
-    private javax.swing.JButton btnStopAnalyzer3;
     private javax.swing.JButton btnStopAnalyzer4;
-    private javax.swing.JButton btnStopAnalyzer5;
-    private javax.swing.JButton btnStopSearchQueue;
-    private javax.swing.JButton btnStopSearchQueue1;
-    private javax.swing.JButton btnStopSearchQueue2;
-    private javax.swing.JButton btnStopSearchQueue3;
     private javax.swing.JButton btnStopSearchQueue4;
-    private javax.swing.JButton btnStopSearchQueue5;
-    private javax.swing.JButton btnStopThreads;
-    private javax.swing.JButton btnStopThreads1;
-    private javax.swing.JButton btnStopThreads2;
-    private javax.swing.JButton btnStopThreads3;
     private javax.swing.JButton btnStopThreads4;
-    private javax.swing.JButton btnStopThreads5;
     private javax.swing.JButton btnTfidf;
     private javax.swing.JButton btnWordnetAnalyzer;
+    private java.awt.Button button1;
     private java.awt.Choice choiceSearchEngine;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -7175,18 +5936,8 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JFileChooser jFileChooser1;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -7204,38 +5955,24 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JMenuItem jMenuItemSaveTask;
     private javax.swing.JMenuItem jMenuItemSaveUrlList;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
-    private javax.swing.JScrollPane jScrollPane11;
-    private javax.swing.JScrollPane jScrollPane12;
-    private javax.swing.JScrollPane jScrollPane13;
-    private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane16;
     private javax.swing.JScrollPane jScrollPane17;
-    private javax.swing.JScrollPane jScrollPane18;
-    private javax.swing.JScrollPane jScrollPane19;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane20;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
+    private javax.swing.JTable jTable;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextAreaFederatedQuery;
     private javax.swing.JTextField jTextField1;
@@ -7244,65 +5981,22 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     private javax.swing.JTextField jTextField4;
     private java.awt.Label label1;
     private java.awt.Label label10;
-    private java.awt.Label label11;
-    private java.awt.Label label12;
-    private java.awt.Label label2;
-    private java.awt.Label label3;
-    private java.awt.Label label4;
-    private java.awt.Label label5;
-    private java.awt.Label label6;
-    private java.awt.Label label7;
-    private java.awt.Label label8;
     private java.awt.Label label9;
-    private javax.swing.JLabel lblCount;
-    private javax.swing.JLabel lblCount1;
-    private javax.swing.JLabel lblCount2;
-    private javax.swing.JLabel lblCount3;
     private javax.swing.JLabel lblCount4;
-    private javax.swing.JLabel lblCount5;
-    private javax.swing.JLabel lblMessage;
-    private javax.swing.JLabel lblMessage1;
-    private javax.swing.JLabel lblMessage2;
-    private javax.swing.JLabel lblMessage3;
     private javax.swing.JLabel lblMessage4;
-    private javax.swing.JLabel lblMessage5;
-    private java.awt.Label lblSearchText;
-    private java.awt.Label lblSearchText1;
-    private java.awt.Label lblSearchText2;
-    private java.awt.Label lblSearchText3;
     private java.awt.Label lblSearchText4;
-    private java.awt.Label lblSearchText5;
     private javax.swing.JList lstSearchEngines;
-    private javax.swing.JList lstSearchEngines1;
-    private javax.swing.JList lstSearchEngines2;
-    private javax.swing.JList lstSearchEngines3;
-    private javax.swing.JList lstSearchEngines4;
-    private javax.swing.JList lstSearchEngines5;
+    private java.awt.Panel panel1;
     private javax.swing.JPanel pnlCrawler;
-    private javax.swing.JPanel pnlCrawler1;
-    private javax.swing.JPanel pnlCrawler2;
-    private javax.swing.JPanel pnlCrawler3;
-    private javax.swing.JPanel pnlCrawler4;
-    private javax.swing.JPanel pnlCrawler5;
     private javax.swing.JPanel pnlSparql;
     private javax.swing.JTextField txtDatahubUrl;
     private javax.swing.JTextField txtLodstatsUrl;
     private javax.swing.JTextField txtMaxCollectorThreads;
     private javax.swing.JTextField txtMaxPage;
-    private javax.swing.JTextField txtMaxPage1;
-    private javax.swing.JTextField txtMaxPage2;
-    private javax.swing.JTextField txtMaxPage3;
-    private javax.swing.JTextField txtMaxPage4;
-    private javax.swing.JTextField txtMaxPage5;
     private javax.swing.JTextField txtNumOfThreadsStatisticalAnalysis;
     private javax.swing.JTextField txtNumOfThreadsStatusMonitoring;
     private java.awt.TextField txtSearchText;
     private javax.swing.JTextArea txtSearchTexts;
-    private javax.swing.JTextArea txtSearchTexts1;
-    private javax.swing.JTextArea txtSearchTexts2;
-    private javax.swing.JTextArea txtSearchTexts3;
-    private javax.swing.JTextArea txtSearchTexts4;
-    private javax.swing.JTextArea txtSearchTexts5;
     private java.awt.TextArea txtSeeds;
     private javax.swing.JTextField txtSparqlesUrl;
     private javax.swing.JTextField txtStatisticalAnalysisCheckEveryHours;

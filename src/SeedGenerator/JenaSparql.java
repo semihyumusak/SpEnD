@@ -9,6 +9,8 @@ import com.hp.hpl.jena.query.*;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.impl.ResourceImpl;
 import com.hp.hpl.jena.sparql.engine.http.QueryEngineHTTP;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 /**
  * @author Simon Jupp
@@ -19,7 +21,7 @@ import com.hp.hpl.jena.sparql.engine.http.QueryEngineHTTP;
  *
  */
 public class JenaSparql {
-  //static String sparqlEndpoint;// = "http://www.ebi.ac.uk/rdf/services/atlas/sparql";
+    //static String sparqlEndpoint;// = "http://www.ebi.ac.uk/rdf/services/atlas/sparql";
 
     // get expression values for uniprot acc Q16850
 //  String sparqlQuery = "" +
@@ -51,15 +53,14 @@ public class JenaSparql {
     private JenaSparql() {
         //    sparqlEndpoint = url;
     }
-    public static int queryTimeOut = 30000;
+    public static int queryTimeOut = 10000;
 
     public static boolean isSparqlEndpoint(String sparqlEndpoint) {
         String sparqlQuery2 = "select distinct ?Concept where {[] a ?Concept} LIMIT 10";
         String sparqlQuery1 = "select ?s where {?s ?p ?o} LIMIT 10";
         String sparqlQuery = "ASK  {?x ?g ?v}";
-        
-        // create the Jena query using the ARQ syntax (has additional support for SPARQL federated queries)
 
+        // create the Jena query using the ARQ syntax (has additional support for SPARQL federated queries)
         Query query2 = QueryFactory.create(sparqlQuery, Syntax.syntaxARQ);
         Query query1 = QueryFactory.create(sparqlQuery, Syntax.defaultQuerySyntax);
         Query query3 = QueryFactory.create(sparqlQuery, Syntax.defaultSyntax);
@@ -99,7 +100,7 @@ public class JenaSparql {
     }
 
     public static String getSparqlXMLResult(String sparqlEndpoint, String sparqlQuery) {
-       System.out.println(sparqlEndpoint); 
+        System.out.println(sparqlEndpoint);
         Query query;
         QueryEngineHTTP httpQuery;
         ResultSet results;
@@ -113,6 +114,13 @@ public class JenaSparql {
             }
 
             try {
+                URL u = new URL(sparqlEndpoint);
+                HttpURLConnection huc = (HttpURLConnection) u.openConnection();
+                huc.setRequestMethod("GET");  //OR  huc.setRequestMethod ("HEAD"); 
+                huc.setConnectTimeout(10000);
+                huc.connect();
+                int code = huc.getResponseCode();
+
                 httpQuery = new QueryEngineHTTP(sparqlEndpoint, sparqlQuery);
                 httpQuery.setTimeout(queryTimeOut);
                 results = httpQuery.execSelect();
@@ -122,7 +130,7 @@ public class JenaSparql {
             } catch (com.hp.hpl.jena.sparql.engine.http.QueryExceptionHTTP ex) {
                 System.out.println("Unknown Host: " + ex.getMessage());
             } catch (Exception ex) {
-                Thread.sleep(1000);
+                //Thread.sleep(1000);
                 System.out.println("Exception (Query Execution): " + ex.getMessage());
             }
             return null;
