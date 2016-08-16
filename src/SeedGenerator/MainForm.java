@@ -1937,9 +1937,9 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //
 //        endtagindex = htmltext.indexOf(searchEngine.getNextButtonIdentifier());
 //        //urlyi endindeksten bulabiliyorum
-//        //öncesi 207 karakter, kabaca 250 chr öncesini alıp içerisindeki href alınır
+//        //Ã¶ncesi 207 karakter, kabaca 250 chr Ã¶ncesini alÄ±p iÃ§erisindeki href alÄ±nÄ±r
 //        startindex = htmltext.indexOf("href=", endtagindex - 300) + 6;
-//        endindex = htmltext.indexOf('"', startindex + 10);// başlangıçtaki tırnağı atlaması için +10
+//        endindex = htmltext.indexOf('"', startindex + 10);// baÅŸlangÄ±Ã§taki tÄ±rnaÄŸÄ± atlamasÄ± iÃ§in +10
 //        nextUrl = htmltext.substring(startindex, endindex);
 //        if (!nextUrl.startsWith("http")) {
 //            nextUrl = baseUrl + nextUrl;
@@ -1959,27 +1959,27 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //            case Bing:
 //                endtagindex = htmltext.indexOf("<div class=\"sw_next\">Next</div></a>");
 //                //urlyi endindeksten bulabiliyorum
-//                //öncesi 207 karakter, kabaca 250 chr öncesini alıp içerisindeki href alınır
+//                //Ã¶ncesi 207 karakter, kabaca 250 chr Ã¶ncesini alÄ±p iÃ§erisindeki href alÄ±nÄ±r
 //                startindex = htmltext.indexOf("href=", endtagindex - 250) + 6;
-//                endindex = htmltext.indexOf('"', startindex + 10);// başlangıçtaki tırnağı atlaması için +10
+//                endindex = htmltext.indexOf('"', startindex + 10);// baÅŸlangÄ±Ã§taki tÄ±rnaÄŸÄ± atlamasÄ± iÃ§in +10
 //                nextUrl = htmltext.substring(startindex, endindex);
 //                nextUrl = SearchEngineStruct.Bing.getBaseUrl() + nextUrl;
 //                break;
 //            case Google:
 //                endtagindex = htmltext.indexOf("Sonraki</span></a>");
 //                //urlyi endindeksten bulabiliyorum
-//                //öncesi 207 karakter, kabaca 250 chr öncesini alıp içerisindeki href alınır
+//                //Ã¶ncesi 207 karakter, kabaca 250 chr Ã¶ncesini alÄ±p iÃ§erisindeki href alÄ±nÄ±r
 //                startindex = htmltext.indexOf("href=", endtagindex - 300) + 6;
-//                endindex = htmltext.indexOf('"', startindex + 10);// başlangıçtaki tırnağı atlaması için +10
+//                endindex = htmltext.indexOf('"', startindex + 10);// baÅŸlangÄ±Ã§taki tÄ±rnaÄŸÄ± atlamasÄ± iÃ§in +10
 //                nextUrl = htmltext.substring(startindex, endindex);
 //                nextUrl = SearchEngineStruct.Google.getBaseUrl() + nextUrl;
 //                break;
 //            case Yandex:
 //                endtagindex = htmltext.indexOf(SearchEngineStruct.Yandex.getNextButtonIdentifier());
 //                //urlyi endindeksten bulabiliyorum
-//                //öncesi 207 karakter, kabaca 250 chr öncesini alıp içerisindeki href alınır
+//                //Ã¶ncesi 207 karakter, kabaca 250 chr Ã¶ncesini alÄ±p iÃ§erisindeki href alÄ±nÄ±r
 //                startindex = htmltext.indexOf("href=", endtagindex - 300) + 6;
-//                endindex = htmltext.indexOf('"', startindex + 10);// başlangıçtaki tırnağı atlaması için +10
+//                endindex = htmltext.indexOf('"', startindex + 10);// baÅŸlangÄ±Ã§taki tÄ±rnaÄŸÄ± atlamasÄ± iÃ§in +10
 //                nextUrl = htmltext.substring(startindex, endindex);
 //                nextUrl = SearchEngineStruct.Google.getBaseUrl() + nextUrl;
 //                break;
@@ -3041,7 +3041,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //                            if (!word.equals(cleanword)) {
 //                                word = cleanword;//System.out.println(word+"--"+cleanword);
 //                            }
-//                            word = word.toLowerCase().replace("ı", "i");
+//                            word = word.toLowerCase().replace("Ä±", "i");
 //
 //                            if (wordCount.containsKey(word)) {
 //                                if (!localwordCount.containsKey(word)) {
@@ -3136,7 +3136,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //                                if (!word.equals(cleanword)) {
 //                                    word = cleanword;//System.out.println(word+"--"+cleanword);
 //                                }
-//                                word = word.toLowerCase().replace("ı", "i");
+//                                word = word.toLowerCase().replace("Ä±", "i");
 //                                if (wordCount.containsKey(word)) {
 //                                    wordCount.replace(word, wordCount.get(word) + 1);
 //                                } else {
@@ -3247,7 +3247,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                             if (!word.equals(cleanword)) {
                                 word = cleanword;//System.out.println(word+"--"+cleanword);
                             }
-                            word = word.toLowerCase().replace("ı", "i");
+                            word = word.toLowerCase().replace("Ä±", "i");
 
                             if (wordCount.containsKey(word)) {
                                 if (!localwordCount.containsKey(word)) {
@@ -3367,7 +3367,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                                 if (!word.equals(cleanword)) {
                                     word = cleanword;//System.out.println(word+"--"+cleanword);
                                 }
-                                word = word.toLowerCase().replace("ı", "i");
+                                word = word.toLowerCase().replace("Ä±", "i");
                                 if (wordCount.containsKey(word)) {
                                     wordCount.replace(word, wordCount.get(word) + 1);
                                 } else {
@@ -3606,7 +3606,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
                         if (!word.equals(cleanword)) {
                             word = cleanword;//System.out.println(word+"--"+cleanword);
                         }
-                        word = word.toLowerCase().replace("ı", "i");
+                        word = word.toLowerCase().replace("Ä±", "i");
 
                         if (wordCount.containsKey(word) && !localwordCount.containsKey(word)) {
                             wordCount.replace(word, wordCount.get(word) + 1);
@@ -3744,7 +3744,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
 //                        if (!word.equals(cleanword)) {
 //                            word = cleanword;//System.out.println(word+"--"+cleanword);
 //                        }
-//                        word = word.toLowerCase().replace("ı", "i");
+//                        word = word.toLowerCase().replace("Ä±", "i");
 //
 //                        if (wordCount.containsKey(word) && !localwordCount.containsKey(word)) {
 //                            wordCount.replace(word, wordCount.get(word) + 1);
@@ -4079,7 +4079,7 @@ public class MainForm extends JFrame implements ActionListener, WindowListener {
     }
     private void btnWordnetAnalyzerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWordnetAnalyzerActionPerformed
 
-//        wordNetAnalyzer("comment", "wordnet_hypernym", 400);
+        wordNetAnalyzer("comment", "wordnet_hypernym", 400);
 //        wordNetAnalyzer("comment", "wordnet_topic", 400);
 //        wordNetAnalyzer("label", "wordnet_hypernym", 400);
 //        wordNetAnalyzer("label", "wordnet_topic", 400);
